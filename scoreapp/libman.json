@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "defaultProvider": "jsdelivr",
+  "libraries": [
+    {
+      "library": "angularjs-currency-input-mask@1.1.2",
+      "destination": "wwwroot/lib/angularjs-currency-input-mask/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "popper.js@2.10.2",
+      "destination": "wwwroot/lib/popper.js/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "angular-cookies@1.8.2",
+      "destination": "wwwroot/lib/angular-cookies/"
+    }
+  ]
+}

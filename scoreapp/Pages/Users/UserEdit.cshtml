@@ -1,0 +1,75 @@
+﻿@page "{Id:int}"
+@model scoreapp.Pages.Users.UserEditModel
+@{
+    ViewData["title"] = "Edición de Usuario";
+
+}
+
+<form method="post">
+    <input type="hidden" asp-for="data.Id" />
+    <input type="hidden" asp-for="data.DisplayName" />
+    <div class="container pt-5 z-depth-1">
+        <section class="p-md-3 mx-md-5 text-lg-left">
+            <h2 class="text-center font-weight-bold mb-4 pb-1">Edición del Usuario: @Model.data.DisplayName</h2>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mb-5">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-5 avatar w-100 white d-flex justify-content-center align-items-center">
+                            <img src="~/@Model.data.Picture"
+                                 class="img-fluid rounded-circle z-depth-1" />
+                        </div>
+                        <div class="col-7">
+                            <h6 class="font-weight-bold pt-2">@Model.data.DisplayName</h6>
+                            <p class="text-muted">
+                                @Model.data.Mail
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-sm-6 mb-5">
+                    <div class="md-form md-outline mt-3">
+                        <input asp-for="data.EmployerCode" type="text" class="form-control" disabled>
+                        <label asp-for="data.EmployerCode">@Html.DisplayNameFor(x => x.data.EmployerCode)</label>
+                        <span asp-validation-for="data.EmployerCode" class="text-danger"></span>
+                    </div>
+
+                    <div class="md-form md-outline mt-3">
+                        <input asp-for="data.Username" type="text" class="form-control" readonly>
+                        <label asp-for="data.Username">@Html.DisplayNameFor(x => x.data.Username)</label>
+                        <span asp-validation-for="data.Username" class="text-danger"></span>
+                    </div>
+
+                    <select class="browser-default custom-select" searchable="Search here.." style="color: #757575bd" asp-for="data.TypeUser" asp-items="Model.TypeUser">
+                    </select>
+                    <span asp-validation-for="data.TypeUser" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-success btn-rounded"><i class="fas fa-save mr-1"></i>Guardar</button>
+                <a href="@HttpContext.Request.Headers["Referer"]" class="btn btn-danger btn-rounded"><i class="fas fa-ban mr-1"></i>Cancelar</a>
+            </div>
+            
+        </section>
+    </div>
+</form>
+@section Scripts{
+    <script>
+        
+        $(document).ready(function () {
+            $('.mdb-select').materialSelect();
+            $('input:not([type="email"]):not([type="date"]):not([type="checkbox"]):not([type="number"]):not([type="hidden"])').attr('type', 'text');
+
+            $('input:not([type="date"]):not([type="hidden"])').each(function () {
+
+                $(this).parent().find('label').addClass("activeCustom");
+
+            })
+
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
+        });
+    </script>
+
+
+}

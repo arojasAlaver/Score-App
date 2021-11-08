@@ -1,0 +1,133 @@
+﻿@page
+@model scoreapp.Pages.Roles.RolesManagmentModel
+@{
+    ViewData["title"] = "Administración de Roles";
+}
+
+
+
+
+<form method="post">
+
+    <div class="container">
+
+
+        <section class="dark-grey-text text-center mb-5">
+
+            <h3 class="font-weight-bold mb-5">Administración de Roles</h3>
+
+            @*<div class="row">
+                    <div class="col-xl-12">
+                        <button type="submit" class="btn btn-success"><i class="far fa-save mr-1"></i>Guardar</button>
+                    </div>
+                </div>*@
+            <div class="card">
+                <div class="card-body">
+                    <div ng-app="indexModule" ng-controller="indexController">
+                        <div class="row">
+                            <div class="col-12">
+
+                                <div class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false" style="margin-top:80px;"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <img src="~/images/Editing body text-amico.svg" alt="avatar" class="rounded-circle img-responsive">
+                                            </div>
+                                            <div class="modal-body text-center mb-1">
+
+                                                <h5 class="mt-1 mb-2">{{roleChange1}}</h5>
+
+                                                <div class="md-form ml-0 mr-0">
+                                                    <input type="text" id="form29" class="form-control form-control-sm validate ml-0" ng-model="roleChange2">
+                                                </div>
+
+                                                <div class="text-center mt-4">
+                                                    <button type="button" class="btn btn-success mt-1" ng-click="editRole(Id,roleChange1,roleChange2)" data-dismiss="modal"><i class="fas fa-thumbs-up mr-1"></i>Proceder</button>
+                                                    <button type="button" class="btn btn-danger mt-1" data-dismiss="modal"><i class="fas fa-ban ml-1"></i> Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input ng-model="role" type="text" class="form-control" ng-class="class" aria-describedby="button-addon2" ng-keypress="class=''">
+                                    <div class="input-group-append">
+                                        <button ng-click="addNewRole()" class="btn btn-md btn-outline-default m-0 px-3 py-2 z-depth-0 waves-effect" type="button" id="button-addon2">Agregar Nuevo Rol</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">
+                                        <b>Role</b>
+                                    </th>
+                                    <th class="text-left">
+                                        <b>Id</b>
+                                    </th>
+                                    <th class="text-left align-middle">
+                                        <b>Permisos Asignados</b>
+                                    </th>
+                                    <th>
+                                        <b>Acciones</b>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Roles)
+                                {
+                                    <tr>
+                                        <th scope="row" class="text-left align-middle py-0">@item.Description</th>
+                                        <td class="text-left align-middle py-0">@item.Id</td>
+                                        @if (item.HasPermissionAssigned)
+                                        {
+                                            <td class="text-left align-middle py-0">Si</td>
+                                        }
+                                        else
+                                        {
+                                            <td class="text-left align-middle py-0">No</td>
+                                        }
+                                        <td class="py-0">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Action
+                                                </button>
+                                                <div class="dropdown-menu shadow animated--grow-in">
+                                                    <a class="dropdown-item" data-toggle="modal" data-target="#modalLoginAvatar" ng-click="Id = '@item.Id';roleChange1 = '@item.Description';roleChange2= '@item.Description'">
+                                                        <i class="fas fa-pencil-alt"></i> Edit
+                                                    </a>
+                                                    @*<form class="d-inline">
+                                                            <a class="dropdown-item"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                        </form>*@
+                                                    @if (item.Description != "SuperAdmin")
+                                                    {
+                                                        <a style='margin-right:16px' href="/478d5d45-d8d5-4433-bb8e-451bf62b6d61/@item.Id" class="dropdown-item">
+                                                            <i class="fas fa-wrench"></i> Manage Permissions
+                                                        </a>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Table -->
+
+        </section>
+        <!--Section: Content-->
+
+
+    </div>
+
+</form>
+
+@section scripts{
+    <script src="~/js/role_managment/index.js"></script>
+}

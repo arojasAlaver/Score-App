@@ -1,0 +1,112 @@
+﻿@page
+@model scoreapp.Pages.Configs.ConfigsModel
+@{
+    ViewData["Title"] = "Configuraciones de variables";
+}
+
+
+<form id="form" method="post">
+    <div ng-app="indexModule" ng-controller="indexController">
+        <div class="card">
+            @if (Model.Message != null)
+            {
+                switch (Model.Message["type"])
+                {
+                    case "success":
+                        <div class="alert alert-success" role="alert">
+                            @Model.Message["message"]
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        break;
+                    case "error":
+                        <div class="alert alert-error" role="alert">
+                            @Model.Message["message"]
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        break;
+                }
+
+            }
+
+            <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+                Configuraciones de Score App
+            </h3>
+            <div class="card-body">
+                <div class="text-danger" role="alert" asp-validation-summary="All"></div>
+                <div id="table" class="table-editable">
+                    <span class="table-add float-right mb-3 mr-2">
+                        @if (User.IsInRole("Administrator") || User.HasClaim("Permission", "Permission.Config.Create") || User.HasClaim("Permission", "Permission.Config.Edit"))
+                        {
+                            <a onclick="document.getElementById('form').submit();" class="text-success">
+                                <i class="fas fa-save fa-2x" aria-hidden="true"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            <a onclick="swal.fire('Oooops','El usuario no tiene suficientes privilegios para ejectuar esta acción','error')" class="text-success">
+                                <i class="fas fa-save fa-2x" aria-hidden="true"></i>
+                            </a>
+                        }
+
+                        @if (User.IsInRole("Administrator") || User.HasClaim("Permission", "Permission.Config.Create"))
+                        {
+                            <a ng-click="add()" class="text-success ml-4"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a>
+                        }
+                        else
+                        {
+                            <a onclick="swal.fire('Oooops','El usuario no tiene suficientes privilegios para ejectuar esta acción','error')"
+                               class="text-success ml-4"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a>
+                        }
+
+
+                    </span>
+                    <table class="table table-bordered table-responsive-md table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center">IDENTIFICADOR</th>
+                                <th class="text-center">CONFIGURACIÓN</th>
+                                <th class="text-center">VALOR</th>
+                                <th class="text-center">REMOVER</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="setting in settings track by $index">
+                            <tr>
+                                <td class="pt-3-half text-left" contenteditable="false" ng-model="setting.id">{{setting.id}}</td>
+                                <input type="hidden" value="{{setting.id}}" name="_configs[{{$index}}].Id" />
+                                <td class="pt-3-half text-left" contenteditable="{{setting.editableSetting}}" ng-model="setting.setting">{{setting.setting}}</td>
+                                <input type="hidden" value="{{setting.setting}}" name="_configs[{{$index}}].Setting" />
+                                <td class="pt-3-half text-left" contenteditable="true" ng-model="setting.value">{{setting.value}}</td>
+                                <input type="hidden" value="{{setting.value}}" name="_configs[{{$index}}].Value" />
+                                <td>
+                                    <span class="table-remove">
+                                        <button ng-click="remove($index)" type="button" class="btn btn-danger btn-rounded btn-sm my-0" ng-disabled="!setting.editableSetting">
+                                            Remover
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/lib/angular-ui-mask/ui-mask.js"></script>
+    <script src="~/lib/angularjs-currency-input-mask/dist/angularjs-currency-input-mask.min.js"></script>
+    <script src="~/lib/angularjs-crypto/angularjs-crypto.js"></script>
+    <script src="~/lib/angularjs-crypto/CryptoJSCipher.js"></script>
+    <script src="~/lib/angularjs-crypto/Crypto-js-AES.js"></script>
+    <script src="~/js/config/index.js"></script>
+    <script>
+        app.value('$settings',@Html.Raw(Json.Serialize(Model._configs)));
+    </script>
+
+
+}

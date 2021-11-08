@@ -1,0 +1,102 @@
+﻿@model IndexModel
+
+
+<h4 class="font-weight-bold text-right">Datos Personales</h4>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="md-form md-outline mt-3">
+            <input asp-for="_person.Names" type="text" class="form-control" autocomplete="off">
+            <label asp-for="_person.Names">@Html.DisplayNameFor(x => x._person.Names)</label>
+            <span asp-validation-for="_person.Names" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="md-form md-outline mt-3">
+            <input asp-for="_person.LastNames" class="form-control" autocomplete="off">
+            <label asp-for="_person.LastNames">@Html.DisplayNameFor(x => x._person.LastNames)</label>
+            <span asp-validation-for="_person.LastNames" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<select class="browser-default custom-select" style="color: #757575bd" ng-model="typeDocumentSelect" asp-for="_person.Type_Indetification"
+        ng-options="typeDocument as typeDocument.label disable when typeDocument.disabled for typeDocument in typeDocuments
+                            track by typeDocument.id" ng-change="UpdateTypeDocument()">
+</select>
+<span asp-validation-for="_person.Type_Indetification" class="text-danger"></span>
+<div class="md-form md-outline mt-3">
+    <input asp-for="_person.Id" class="form-control" ng-model="id" ui-mask="{{mask}}" ui-mask-placeholder ui-mask-placeholder-char="space" autocomplete="off">
+    <label asp-for="_person.Id">@Html.DisplayNameFor(x => x._person.Id)</label>
+    <span asp-validation-for="_person.Id" class="text-danger"></span>
+</div>
+
+<select class="browser-default custom-select mt-3 form-control" asp-for="_person.Marital_Status" style="color: #757575bd" asp-items="Model._marital_status"></select>
+<span asp-validation-for="_person.Marital_Status" class="text-danger"></span>
+
+<select class="browser-default custom-select mt-3 form-control" asp-for="_person.Nationality" style="color: #757575bd" asp-items="Model._nationality"></select>
+<span asp-validation-for="_person.Nationality" class="text-danger"></span>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="md-form md-outline mt-3">
+            <input asp-for="_person.cel1" class="form-control" ng-model="cel1" ui-mask="{{phoneFormat}}" ui-mask-placeholder ui-mask-placeholder-char="space" autocomplete="off">
+            <label asp-for="_person.cel1">@Html.DisplayNameFor(x => x._person.cel1)</label>
+            <span asp-validation-for="_person.cel1" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="md-form md-outline mt-3">
+            <input asp-for="_person.cel2" class="form-control" ng-model="cel2" ui-mask="{{phoneFormat}}" ui-mask-placeholder ui-mask-placeholder-char="space" autocomplete="off">
+            <label asp-for="_person.cel2">@Html.DisplayNameFor(x => x._person.cel2)</label>
+            <span asp-validation-for="_person.cel2" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<div class="md-form md-outline mt-3">
+    <input asp-for="_person.Email" class="form-control" autocomplete="off">
+    <label asp-for="_person.Email">@Html.DisplayNameFor(x => x._person.Email)</label>
+    <span asp-validation-for="_person.Email" class="text-danger"></span>
+</div>
+
+<div class="md-form md-outline mt-3">
+    <input asp-for="_person.Address" class="form-control" autocomplete="off">
+    <label asp-for="_person.Address">@Html.DisplayNameFor(x => x._person.Address)</label>
+    <span asp-validation-for="_person.Address" class="text-danger"></span>
+</div>
+
+<select class="mdb-select md-form md-outline" searchable="Search here.."
+        asp-for="_person.Province" style="color: #757575bd" ng-model="personProvinceSelect"
+        ng-options="province as province.label disable when province.disabled for province in personProvinces
+                            track by province.id" ng-change="update(1)">
+</select>
+@*<select class="browser-default custom-select mt-3" asp-for="_person.Province" style="color: #757575bd" ng-model="personProvinceSelect"
+        ng-options="province as province.label disable when province.disabled for province in personProvinces
+                            track by province.id" ng-change="update(1)">
+</select>*@
+<span asp-validation-for="_person.Province" class="text-danger"></span>
+
+<select class="mdb-select md-form md-outline" searchable="Search here.."
+        asp-for="_person.Municipality" style="color: #757575bd" ng-model="personMunipalitySelect"
+        ng-options="municipality as municipality.label disable when municipality.disabled for municipality in personMunicipalities
+                            track by municipality.id">
+</select>
+@*<select class="browser-default custom-select mt-3" asp-for="_person.Municipality" style="color: #757575bd" ng-model="personMunipalitySelect"
+        ng-options="municipality as municipality.label disable when municipality.disabled for municipality in personMunicipalities
+                            track by municipality.id">
+</select>*@
+<span asp-validation-for="_person.Municipality" class="text-danger"></span>
+<div class="md-form md-outline mt-3">
+    <input asp-for="_person.BornDate" class="form-control"  autocomplete="off">
+    <label asp-for="_person.BornDate" class="activeCustom" style="position:absolute;top:18px;">@Html.DisplayNameFor(x => x._person.BornDate)</label>
+    <span asp-validation-for="_person.BornDate" class="text-danger"></span>
+</div>
+
+

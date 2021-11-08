@@ -1,0 +1,75 @@
+﻿@model IndexModel
+
+
+<h4 class="font-weight-bold text-right">Información Laboral</h4>
+
+<select class="mdb-select md-form md-outline" searchable="Search here.." asp-for="_person.Jobs[0].TypeJob" asp-items="Model._type_job">
+</select>
+@*<select class="browser-default custom-select" searchable="Search here.." style="color: #757575bd" asp-for="_person.Jobs[0].TypeJob" asp-items="Model._type_job">
+</select>*@
+<span asp-validation-for="_person.Jobs[0].TypeJob" class="text-danger"></span>
+
+<div class="md-form md-outline mt-3">
+    <input asp-for="_person.Jobs[0].CompanyName" type="text" class="form-control" autocomplete="off">
+    <label asp-for="_person.Jobs[0].CompanyName">@Html.DisplayNameFor(x => x._person.Jobs[0].CompanyName)</label>
+    <span asp-validation-for="_person.Jobs[0].CompanyName" class="text-danger"></span>
+</div>
+
+<select class="mdb-select md-form md-outline" searchable="Search here.." asp-for="_person.Jobs[0].TypeActivity" asp-items="Model._type_activities">
+</select>
+@*<select class="browser-default custom-select" searchable="Search here.." style="color: #757575bd" asp-for="_person.Jobs[0].TypeActivity" asp-items="Model._type_activities">
+</select>*@
+<span asp-validation-for="_person.Jobs[0].TypeActivity" class="text-danger"></span>
+
+<div class="md-form md-outline mt-3">
+    <input asp-for="_person.Jobs[0].CompanyPhone" type="text" class="form-control" ng-model="jobPhone" ui-mask="{{phoneFormat}}" ui-mask-placeholder ui-mask-placeholder-char="space" autocomplete="off">
+    <label asp-for="_person.Jobs[0].CompanyPhone">@Html.DisplayNameFor(x => x._person.Jobs[0].CompanyPhone)</label>
+    <span asp-validation-for="_person.Jobs[0].CompanyPhone" class="text-danger"></span>
+</div>
+
+<div class="md-form md-outline mt-3">
+    <input asp-for="_person.Jobs[0].Address" type="text" class="form-control" autocomplete="off">
+    <label asp-for="_person.Jobs[0].Address">@Html.DisplayNameFor(x => x._person.Jobs[0].Address)</label>
+    <span asp-validation-for="_person.Jobs[0].Address" class="text-danger"></span>
+</div>
+
+<select class="mdb-select md-form md-outline" searchable="Search here.." asp-for="_person.Jobs[0].Province" ng-model="jobProvinceSelect"
+        ng-options="province as province.label disable when province.disabled for province in jobProvinces
+                            track by province.id" ng-change="update(2)">
+</select>
+<span asp-validation-for="_person.Jobs[0].Province" class="text-danger"></span>
+
+<select class="mdb-select md-form md-outline" searchable="Search here.." asp-for="_person.Jobs[0].Municipality" ng-model="jobMunipalitySelect"
+        ng-options="municipality as municipality.label disable when municipality.disabled for municipality in jobMunicipalities
+                            track by municipality.id">
+</select>
+@*<select class="browser-default custom-select mt-3" asp-for="_person.Jobs[0].Municipality" style="color: #757575bd" ng-model="jobMunipalitySelect"
+        ng-options="municipality as municipality.label disable when municipality.disabled for municipality in jobMunicipalities
+                            track by municipality.id">
+</select>*@
+<span asp-validation-for="_person.Jobs[0].Municipality" class="text-danger"></span>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="md-form md-outline mt-3">
+            <input asp-for="_person.Applications[0].Incomes" autocomplete="off" class="form-control" ng-model="incomes" mask-currency="''" value="{{incomes|customNumber}}" ng-blur="incomes = ifNull(incomes)">
+            <label asp-for="_person.Applications[0].Incomes">@Html.DisplayNameFor(x => x._person.Applications[0].Incomes)</label>
+            <span asp-validation-for="_person.Applications[0].Incomes" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="md-form md-outline mt-3">
+            <input asp-for="_person.Applications[0].OtherIncomes" class="form-control" ng-model="otherIncomes" mask-currency="''" value="{{otherIncomes|customNumber}}" ng-blur="otherIncomes = ifNull(otherIncomes)">
+            <label asp-for="_person.Applications[0].OtherIncomes">@Html.DisplayNameFor(x => x._person.Applications[0].OtherIncomes)</label>
+            <span asp-validation-for="_person.Applications[0].OtherIncomes" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<div class="md-form md-outline mt-3">
+    <input asp-for="_person.Jobs[0].TimeInCompany" type="number" class="form-control">
+    <label asp-for="_person.Jobs[0].TimeInCompany">@Html.DisplayNameFor(x => x._person.Jobs[0].TimeInCompany)</label>
+    <span asp-validation-for="_person.Jobs[0].TimeInCompany" class="text-danger"></span>
+</div>

@@ -1,0 +1,97 @@
+﻿@page
+@model scoreapp.Pages.Users.UsersModel
+@{
+    ViewData["Title"] = "Administración de Usuarios";
+}
+
+<div ng-app="indexModule" ng-controller="indexController">
+    <div class="container-fluid">
+
+
+        <!--Section: Content-->
+        <section class="dark-grey-text">
+
+            <!-- Section heading -->
+
+            <div class="row align-items-center">
+
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h2 class="text-center font-weight-bold mb-4 pb-2">Administración de usuarios</h2>
+                    <p class="text-center mx-auto w-responsive mb-5">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
+                        error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.
+                    </p>
+
+
+                </div>
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="view float-right">
+                        <img src="~/images/Add User-rafiki.svg" class="img-fluid" alt="smaple image" width="400" height="400">
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input id="filter" class="form-control mb-4 w-25 float-right" placeholder="Filtro" ng-model="filter">
+                </div>
+            </div>
+
+            <div class="row" ng-show="isFinished">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-12 p-2" ng-repeat="user in users | filter:filter" ng-init="$last && finished()">
+                    <div class="row align-items-center">
+                        
+                        <div class="col-4 d-flex mb-2 align-items-center">
+                            <div class="avatar mx-0 w-100 white d-flex justify-content-center align-items-center">
+                                <img ng-src="{{user.picture}}"  class="rounded-circle img-fluid z-depth-1" alt="{{user.username}}">
+                            </div>
+                        </div>
+                        <div class="col-8">
+
+                            <h6 class="font-weight-bold mb-1"><strong>{{user.displayName}}</strong></h6>
+
+                            <p class="dark-grey-text">{{user.mail}}</p>
+                            @*BOTON AGREGAR/ELIMINAR*@
+                            <a ng-click="userManagment(user)" class="btn btn-md mx-0 btn-rounded {{user.exists == false?'btn-primary':'btn-danger'}}" data-toggle="popover" title="Administración de Usuario"
+                               data-content="Agregue o quite el acceso a esta herramienta del usuario {{user.displayName}}" data-trigger="hover" data-placement="top">
+                                <i class="fal" ng-class="user.exists?'fa-trash':'fa-plus'"></i>
+                            </a>
+                            @*BOTON ROLES*@
+                            <a class="btn btn-md mx-0 btn-rounded btn-secondary" ng-show="user.exists" data-toggle="popover" title="Administración de Roles"
+                               data-content="Agregue o quite roles a el usuario de {{user.displayName}}" data-trigger="hover" data-placement="top"
+                               href="../f83823e1-081f-46d4-881e-854381d520bd/{{user.id}}">
+                                <i class="fal fa-shield-check"></i>
+                            </a>
+                            @*BOTON EDITAR*@
+                            <a class="btn btn-md mx-0 btn-rounded btn-amber" ng-show="user.exists" data-toggle="popover" title="Edición de usuario"
+                               data-content="Edición del usuario: {{user.displayName}}" data-trigger="hover" data-placement="top"
+                               href="../cfb24a38-05ba-4155-8727-a1e3301af9f3/{{user.id}}">
+                                <i class="fal fa-edit"></i>
+                            </a>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <hr class="my-5">
+
+        </section>
+
+
+    </div>
+</div>
+
+@section scripts{
+    
+    <script src="~/js/user/index.js"></script>
+    <script>
+        app.value('$message',@Html.Raw(Json.Serialize(Model.Message)));
+    </script>
+    
+    
+}

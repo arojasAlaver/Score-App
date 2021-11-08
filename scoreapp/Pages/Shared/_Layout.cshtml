@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - scoreapp</title>
+    <link rel="icon" type="image/x-icon" href="~/images/alaverLogo.ico">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome/fontawesome.css" rel="stylesheet" />
+    <link href="~/lib/mdbootstrap/mdbootstrap.css" rel="stylesheet" />
+    <link href="~/lib/limonte-sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row p-4 @(User.Identity.IsAuthenticated?"":"wow bounceInUp")" data-wow-duration="@(User.Identity.IsAuthenticated?"0s":"2s")" style="position:fixed;width:100%;z-index:2;background-image: url('/images/banner-bg.png')">
+            <div class="col-12 @(User.Identity.IsAuthenticated?"":"wow slideInRight")" data-wow-duration="@(User.Identity.IsAuthenticated?"0s":"4s")" data-wow-delay="@(User.Identity.IsAuthenticated?"0s":"1s")">
+                <h2 class="text-left text-white">
+                    <div class="d-flex mb-3">
+                        <div class="mr-auto">
+                            <img src="~/images/alaverLogo.png" />
+                            Score App Alaver
+                        </div>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                    <div class="pt-2" style="font-size:24px;">
+                        @User.Identity.Name
+                        @if (Context.Request.Path == "/75e56f57-3036-460f-b3c4-d3789e0fd5fc")
+                        {
+
+
+                            <a onclick="$('#logoff').click()" class="text-white"><i class="fad fa-sign-out"></i></a>
+                        }
+                        else
+                        {
+                            <a onclick="if (confirm('Esta ventana se cerrará, desea proceder?')){ window.close() }" class="text-white"><i class="fad fa-door-closed"></i></a>
+                            
+                        }
+
+                    </div>
+                        }
+
+                    </div>
+                </h2>
+            </div>
+        </div>
+    </div>
+    @if (User.Identity.IsAuthenticated && Context.Request.Path == "/75e56f57-3036-460f-b3c4-d3789e0fd5fc")
+    {
+        <form method="post" asp-page="/Logout">
+            <input id="logoff" style="display:none" type="submit" value="" />
+        </form>
+    }
+
+    <div class="container-fluid" style="position:relative;top:120px;z-index:1; margin-bottom:200px;">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+    <footer class="border-top footer text-muted">
+        <div class="container-fluid text-right">
+            &copy; 2021 - scoreapp - Asociación la Vega Real de Ahorros y Prestamos (Alaver) - Design by Ing Alejandro Raúl Rojas
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/popper.js/umd/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/angularjs/angular.min.js"></script>
+    <script src="~/lib/angularjs/angular-route.min.js"></script>
+    <script src="~/lib/mdbootstrap/mdbootstrap.js"></script>
+    <script src="~/lib/limonte-sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

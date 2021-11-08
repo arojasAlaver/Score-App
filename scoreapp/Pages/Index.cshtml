@@ -1,0 +1,269 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Solicitud de Prestamos";
+
+    Boolean personalDataHasError = !ModelState.IsValid && (ModelState["_person.Id"].Errors.Count > 0 || ModelState["_person.Names"].Errors.Count > 0 ||
+        ModelState["_person.LastNames"].Errors.Count > 0 || ModelState["_person.Type_Indetification"].Errors.Count > 0 || ModelState["_person.cel1"].Errors.Count > 0 || ModelState["_person.cel2"].Errors.Count > 0 ||
+        ModelState["_person.Email"].Errors.Count > 0 || ModelState["_person.Address"].Errors.Count > 0 || ModelState["_person.BornDate"].Errors.Count > 0 || ModelState["_person.Province"].Errors.Count > 0
+        || ModelState["_person.Municipality"].Errors.Count > 0);
+
+    Boolean loanDataHasError = !ModelState.IsValid && (ModelState["_person.Applications[0].Amount"].Errors.Count > 0 ||
+        ModelState["_person.Applications[0].Terms"].Errors.Count > 0);
+
+    Boolean acceptDataHasError = !ModelState.IsValid && ModelState["_person.Applications[0].acceptCondition"].Errors.Count > 0;
+
+    Boolean vehicleDataHasError = !ModelState.IsValid && (ModelState["_person.Applications[0].Vehicle.Vehicle_State"].Errors.Count > 0 || ModelState["_person.Applications[0].Vehicle.Brand"].Errors.Count > 0
+        || ModelState["_person.Applications[0].Vehicle.Model"].Errors.Count > 0 || ModelState["_person.Applications[0].Vehicle.Year"].Errors.Count > 0);
+
+
+
+
+    Boolean jobDataHasError = !ModelState.IsValid && (ModelState["_person.Jobs[0].TypeActivity"].Errors.Count > 0
+|| ModelState["_person.Jobs[0].TypeJob"].Errors.Count > 0 ||
+ModelState["_person.Jobs[0].CompanyName"].Errors.Count > 0 || ModelState["_person.Jobs[0].CompanyPhone"].Errors.Count > 0 || ModelState["_person.Jobs[0].TimeInCompany"].Errors.Count > 0
+|| ModelState["_person.Jobs[0].Address"].Errors.Count > 0 || ModelState["_person.Jobs[0].Province"].Errors.Count > 0 || ModelState["_person.Jobs[0].Municipality"].Errors.Count > 0
+|| ModelState["_person.Applications[0].Incomes"].Errors.Count > 0 || ModelState["_person.Applications[0].OtherIncomes"].Errors.Count > 0);
+
+
+}
+
+
+
+
+
+
+
+
+<form method="post">
+
+    <div ng-app="indexModule" ng-controller="indexController">
+        @if (Model.Message != null)
+        {
+            <div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-notify modal-success" role="document">
+                   
+                    <div class="modal-content">
+                       
+                        <div class="modal-header">
+                            <p class="heading lead">Solicitud Recibida</p>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="white-text">&times;</span>
+                            </button>
+                        </div>
+
+                       
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+                                <p class="mt-5" style="text-align:justify">
+                                    Estimado: <b style="white-space: nowrap">@Model.Message[0] @Model.Message[1]</b>,
+                                    gracias por preferirnos. Hemos recibido y pre-calificado su solicitud de préstamo por un monto de <b style="white-space: nowrap">RD$@Convert.ToDecimal(@Model.Message[2]).ToString("C2")</b>,
+                                    en menos de 24 horas un ejecutivo
+                                    le estará contactando o en su defecto llamar al número de teléfono <b style="white-space: nowrap">809-573-2655</b>
+                                </p>
+                            </div>
+                        </div>
+
+                        
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">De acuerdo<i class="far fa-gem ml-1 text-white"></i></button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        }
+
+
+
+        <div class="container z-depth-1">
+            <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text pb-3">
+                <div class="d-flex flex-row">
+                    <div class="p-2">
+                        <img src="~/images/alaverLogo.ico" />
+                    </div>
+                    <div class="p-2">
+                        <h3 class="font-weight-bold">Asociación la Vega Real de Ahorros y Préstamos</h3>
+
+                        <p class="text-muted">
+                            <ul class="text-lg-left list-unstyled ml-4">
+                                <li>
+                                    <p class="mb-0"><i class="fas fa-map-marker-alt pr-2"></i>C/ Juan Bosch Esq. Presidente Antonio Guzmán Fernández, La Vega</p>
+                                </li>
+                                <li>
+                                    <p class="mb-0"><i class="fas fa-phone pr-2"></i>1-(809)-200-1244</p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-envelope pr-2"></i>alaver@alaver.com.do</p>
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+
+
+
+                <hr class="mb-3 mt-0">
+
+
+                <div class="row">
+
+                    <div class="col-4">
+                        <div class="list-group z-depth-1" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action @(ModelState.IsValid?"active":"")" id="infoList" data-toggle="list" href="#info" role="tab" aria-controls="home">
+                                <i class="fas fa-info mr-1 float-xl-right float-lg-right"></i><text>Información</text>
+                            </a>
+
+                            <a class="list-group-item list-group-item-action @(personalDataHasError?"active":"")" id="personalList" data-toggle="list" href="#personalData" role="tab" aria-controls="profile">
+                                <i class="fas fa-user float-xl-right float-lg-right"></i><text>Datos Personales</text>
+                                @if (personalDataHasError)
+                                {<span class="text-danger float-right mr-3">Error</span>}
+                            </a>
+
+                            <a class="list-group-item list-group-item-action @(!personalDataHasError && jobDataHasError?"active":"")" id="jobList" data-toggle="list" href="#jobData" role="tab" aria-controls="messages">
+                                <i class="fas fa-briefcase float-xl-right float-lg-right"></i><text>
+                                    Información Laboral
+                                </text>
+                                @if (jobDataHasError)
+                                {<span class="text-danger float-right mr-3">Error</span>}
+                            </a>
+
+                            <a class="list-group-item list-group-item-action @(!(personalDataHasError || jobDataHasError) && loanDataHasError?"active":"")" id="loanList" data-toggle="list" href="#loanData" role="tab" aria-controls="messages">
+                                <i class="fas fa-money-bill float-xl-right float-lg-right"></i><text>
+                                    Datos del Préstamo
+                                </text>
+                                @if (loanDataHasError)
+                                {<span class="text-danger float-right mr-3">Error</span>}
+                            </a>
+
+                            <a class="list-group-item list-group-item-action @(!(personalDataHasError || jobDataHasError || loanDataHasError) && vehicleDataHasError?"active":"")" id="carList" data-toggle="list" href="#vehicleData" role="tab" aria-controls="settings">
+                                <i class="fas fa-car float-xl-right float-lg-right"></i><text>
+                                    Datos del Vehiculo
+                                </text>
+                                @if (vehicleDataHasError)
+                                {<span class="text-danger float-right bg-wh mr-3">Error</span>}
+                            </a>
+
+                            <a class="list-group-item list-group-item-action @(!(personalDataHasError || jobDataHasError || vehicleDataHasError || loanDataHasError) && acceptDataHasError?"active":"")" id="finishList" data-toggle="list" href="#acceptData" role="tab" aria-controls="settings">
+                                <i class="fas fa-thumbs-up float-xl-right float-lg-right"></i><text>
+                                    Finalizar
+                                </text>
+                                @if (acceptDataHasError)
+                                {<span class="text-danger float-right bg-wh mr-3">Error</span>}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="tab-content pt-0" id="nav-tabContent">
+                            <div class="tab-pane fade @(ModelState.IsValid?"show active":"")" id="info" role="tabpanel" aria-labelledby="list-home-list">
+                                <h4 class="font-weight-bold">Solicitud y Pre-Calificador de Préstamo</h4>
+                                <p class="text-muted mb-4">
+                                    El pre-calificador vegamovil te permite conectarte con una plataforma de manera segura,
+                                    validamos tu identidad en conjunto con Alaver, entidad financiera que estará financiando
+                                    el vehículo que requiera el cliente. Acceso 24/7 a la plataforma personalizada,
+                                    "accede a préstamos de manera fácil y rápida para la compra de vehiculo
+                                </p>
+                                <p class="font-weight-bold">Instrucciones de manejo</p>
+                                <p class="mb-2">Para avanzar puede oprimir la tecla de suma ubicado en la parte derecha del teclado númerico, oprimiendo el botón azul con la flecha y clicando las pestañas del lado izquierdo</p>
+                                <p class="mb-2"><a href="#">Contacte un soporte</a></p>
+                                <p class="mb-4">Nuestro personal de monitoreo está disponible por teléfono o correo 24/7.</p>
+                                <p class="font-weight-bold">Consultas Generales:</p>
+                                <p class="mb-2"><a href="#">alaver@alaver.com.do</a></p>
+                                <button type="button" class="btn btn-primary btn-floating float-right" data-toggle="tooltip" title="Siguiente" onclick="$('#personalList').click()"><i class="fas fa-arrow-alt-circle-right"></i></button>
+                            </div>
+
+                            <div class="tab-pane fade @(personalDataHasError?"show active":"")" id="personalData" role="tabpanel" aria-labelledby="list-profile-list">
+                                <partial name="_PersonPartial" model="Model" />
+                                <button type="button" class="btn btn-primary btn-floating float-right" data-toggle="tooltip" title="Siguiente" onclick="$('#jobList').click()"><i class="fas fa-arrow-alt-circle-right"></i></button>
+                            </div>
+
+                            <div class="tab-pane fade @(!personalDataHasError && jobDataHasError?"show active":"")" id="jobData" role="tabpanel" aria-labelledby="list-profile-list">
+                                <partial name="_JobPartial" model="Model" />
+                                <button type="button" class="btn btn-primary btn-floating float-right" data-toggle="tooltip" title="Siguiente" onclick="$('#loanList').click()"><i class="fas fa-arrow-alt-circle-right"></i></button>
+                            </div>
+                            <div class="tab-pane fade @(!(personalDataHasError || jobDataHasError) && loanDataHasError?"show active":"")" id="loanData" role="tabpanel" aria-labelledby="list-messages-list">
+                                <h4 class="font-weight-bold text-right">Datos del Préstamo</h4>
+                                <div class="md-form md-outline mt-3">
+                                    <input asp-for="_person.Applications[0].Amount" autocomplete="off" class="form-control" ng-model="amount" mask-currency="''" value="{{amount|customNumber}}" ng-blur="amount = ifNull(amount)">
+                                    <label asp-for="_person.Applications[0].Amount">@Html.DisplayNameFor(x => x._person.Applications[0].Amount)</label>
+                                    <span asp-validation-for="_person.Applications[0].Amount" class="text-danger"></span>
+                                </div>
+
+                                <div class="md-form md-outline mt-3">
+                                    <input asp-for="_person.Applications[0].Terms" autocomplete="off" class="form-control" ng-model="terms" ng-blur="terms = ifNull(terms)">
+                                    <label asp-for="_person.Applications[0].Terms">@Html.DisplayNameFor(x => x._person.Applications[0].Terms)</label>
+                                    <span asp-validation-for="_person.Applications[0].Terms" class="text-danger"></span>
+                                </div>
+
+                                <select class="mdb-select md-form md-outline" searchable="Search here.." asp-for="_person.Applications[0].Office" asp-items="Model._offices">
+                                </select>
+                                <span asp-validation-for="_person.Applications[0].Office" class="text-danger"></span>
+
+
+
+                                <button type="button" class="btn btn-primary btn-floating float-right" data-toggle="tooltip" title="Siguiente" onclick="$('#carList').click()">
+                                    <i class="fas fa-arrow-alt-circle-right"></i>
+                                </button>
+                            </div>
+
+                            <div class="tab-pane fade @(!(personalDataHasError || jobDataHasError || loanDataHasError) && vehicleDataHasError?"show active":"")" id="vehicleData" role="tabpanel" aria-labelledby="list-profile-list">
+                                <partial name="_VehiclePartial" model="Model" />
+                                <button type="button" class="btn btn-primary btn-floating float-right" data-toggle="tooltip" title="Siguiente" onclick="$('#finishList').click()">
+                                    <i class="fas fa-arrow-alt-circle-right"></i>
+                                </button>
+                            </div>
+
+
+                            <div class="tab-pane fade @(!(personalDataHasError || jobDataHasError || vehicleDataHasError || loanDataHasError) && acceptDataHasError?"show active":"")" id="acceptData" role="tabpanel" aria-labelledby="list-settings-list">
+
+                                <h4 class="font-weight-bold text-right">Autorización a mi Hístorico Créditicio</h4>
+
+                                <div class="form-check my-4">
+                                    <input type="checkbox" class="form-check-input" asp-for="_person.Applications[0].AcceptCondition" autocomplete="off">
+                                    <label class="form-check-label text-justify" asp-for="_person.Applications[0].AcceptCondition">@Model.Certified</label>
+                                    <span asp-validation-for="_person.Applications[0].AcceptCondition" class="text-danger"></span>
+                                </div>
+                                <button type="submit" class="btn btn-info btn-sm ml-0">Enviar<i class="far fa-paper-plane ml-2"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/lib/angular-ui-mask/ui-mask.js"></script>
+    <script src="~/lib/angularjs-currency-input-mask/dist/angularjs-currency-input-mask.min.js"></script>
+    <script src="~/lib/angularjs-crypto/angularjs-crypto.js"></script>
+    <script src="~/lib/angularjs-crypto/CryptoJSCipher.js"></script>
+    <script src="~/lib/angularjs-crypto/Crypto-js-AES.js"></script>
+    <script src="~/js/index/index.js"></script>
+    <script>
+        app.value('$municipality',@Html.Raw(Json.Serialize(Model._prov)));
+        app.value('$person',@Html.Raw(Json.Serialize(Model._person)));
+        app.value('$car',@Html.Raw(Json.Serialize(Model._type_car)));
+        app.value('$offices',@Html.Raw(Json.Serialize(Model._offices)));
+        app.value('$isMessageSet',@Html.Raw(Json.Serialize(Model.Message!=null)));
+        $(document).ready(function () {
+            $('.mdb-select').materialSelect();
+            $('input:not([type="email"]):not([type="date"]):not([type="checkbox"]):not([type="number"]):not([type="hidden"])').attr('type', 'text');
+
+            $('input:not([type="date"]):not([type="hidden"])').each(function () {
+
+                $(this).parent().find('label').addClass("activeCustom");
+
+            })
+
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
+        });
+    </script>
+
+
+}
+

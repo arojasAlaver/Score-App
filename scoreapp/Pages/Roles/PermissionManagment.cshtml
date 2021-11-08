@@ -1,0 +1,85 @@
+﻿@page "{Id:Guid}"
+@model scoreapp.Pages.Roles.PermissionManagmentModel
+@{
+    ViewData["title"] = "Administración de Permisos";
+}
+
+<form method="post">
+
+    <div class="container">
+
+
+        <section class="dark-grey-text text-center mb-5">
+
+            <h3 class="font-weight-bold mb-5">Administración de Permisos en Rol: @Model._role.Description</h3>
+            <input type="hidden" asp-for="_role.Id" />
+            <input type="hidden" asp-for="_role.Description" />
+
+            <div class="row">
+                <div class="col-xl-12 d-flex justify-content-start">
+                    <button type="submit" class="btn btn-success">
+                        <i class="far fa-save mr-1"></i>Guardar
+                    </button>
+                    <a class="btn btn-danger" href="@Request.Headers["Referer"]">
+                        <i class="fas fa-ban mr-1"></i>Cancelar
+                    </a>
+
+                </div>
+            </div>
+            <div asp-validation-summary="All" class="text-danger my-2"></div>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-responsive-md mb-0">
+                        <thead>
+                            <tr class="text-left">
+                                <th>
+                                    <b>Permiso</b>
+                                </th>
+                                <th>
+                                    <b>Id</b>
+                                </th>
+                                <th>
+                                    <b>Status</b>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model._permissions.Select((value, index) => (value, index)))
+                            {
+                                <tr>
+                                    <th scope="row" class="text-left">@item.value.Description</th>
+                                    <td class="text-left">@item.value.Id</td>
+
+                                    <td class="text-left">
+
+                                        <div class="custom-control custom-checkbox">
+                                            @if (Model._role.Permissions.Any(x => x.Permission.Id == item.value.Id))
+                                            {
+                                                <input type="checkbox" class="custom-control-input" asp-for="_permissions[item.index].IsSelected" id="@item.value.Id" checked="checked">
+                                            }
+
+                                            else
+                                            {
+                                                <input type="checkbox" class="custom-control-input" asp-for="_permissions[item.index].IsSelected" id="@item.value.Id">
+                                            }
+                                            <input type="hidden" asp-for="_permissions[item.index].Id" />
+                                            <input type="hidden" asp-for="_permissions[item.index].Description" />
+                                            <label class="custom-control-label" for="@item.value.Id"></label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Table -->
+
+        </section>
+        <!--Section: Content-->
+
+
+    </div>
+
+</form>

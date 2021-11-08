@@ -1,0 +1,41 @@
+﻿@model IndexModel
+
+<h4 class="font-weight-bold text-right">Datos del Vehiculo</h4>
+
+
+<input type="hidden" asp-for="_person.Applications[0].Vehicle.Id" value="0" />
+<select class="mdb-select md-form md-outline" searchable="Search here.." style="color: #757575bd" asp-for="_person.Applications[0].Vehicle.Vehicle_State" asp-items="Model._vehicle_state">
+</select>
+@*<select class="browser-default custom-select mt-3 form-control" asp-for="_person.Applications[0].Vehicle.Vehicle_State" style="color: #757575bd" asp-items="Model._vehicle_state"></select>*@
+<span asp-validation-for="_person.Applications[0].Vehicle.Vehicle_State" class="text-danger"></span>
+
+
+<select class="mdb-select md-form md-outline" searchable="Search here.."
+        asp-for="_person.Applications[0].Vehicle.Brand" style="color: #757575bd" ng-model="brandCarsSelect"
+        ng-options="brand as brand.label disable when brand.disabled for brand in brandCars
+                            track by brand.id" ng-change="update(3)">
+</select>
+@*<select class="browser-default custom-select mt-3" asp-for="_person.Applications[0].Vehicle.Brand" style="color: #757575bd" ng-model="brandCarsSelect"
+            ng-options="brand as brand.label disable when brand.disabled for brand in brandCars
+                            track by brand.id" ng-change="update(3)">
+    </select>*@
+<span asp-validation-for="_person.Applications[0].Vehicle.Brand" class="text-danger"></span>
+<select class="mdb-select md-form md-outline" searchable="Search here.."
+        asp-for="_person.Applications[0].Vehicle.Model" style="color: #757575bd" ng-model="modelCarsSelect"
+        ng-options="model as model.label disable when model.disabled for model in modelCars
+                            track by model.id">
+</select>
+@*<select class="browser-default custom-select mt-3" asp-for="_person.Applications[0].Vehicle.Model" style="color: #757575bd" ng-model="modelCarsSelect"
+            ng-options="model as model.label disable when model.disabled for model in modelCars
+                            track by model.id">
+    </select>*@
+<span asp-validation-for="_person.Applications[0].Vehicle.Model" class="text-danger"></span>
+<select class="mdb-select md-form md-outline" searchable="Search here.."
+        style="color: #757575bd" asp-for="_person.Applications[0].Vehicle.Year"
+        asp-items="Model._year">
+</select>
+@*<select class="browser-default custom-select mt-3" style="color: #757575bd" asp-for="_person.Applications[0].Vehicle.Year"
+            asp-items="Model._year">
+    </select>*@
+<span asp-validation-for="_person.Applications[0].Vehicle.Year" class="text-danger"></span>
+

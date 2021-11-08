@@ -1,0 +1,44 @@
+﻿@model scoreapp.Pages.Applications.IndexModel
+
+
+<div class="modal fade" id="modalLoginForm" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Asignación de caso a oficial</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                @*<div class="row">
+            <div class="col-md-12">
+                <div class="md-form md-outline mt-3">
+                    <input id="filter" type="text" class="form-control">
+                    <label for="filter">Filtro</label>
+                </div>
+            </div>
+        </div>*@
+
+
+                <select class="mdb-select md-form md-outline" searchable="Search here.." ng-model="selectedOficial"
+                        ng-options="businnessOficial as businnessOficial.label 
+                        disable when businnessOficial.disabled for businnessOficial in businnessOficials
+                            track by businnessOficial.id">
+                </select>
+                <label class="mdb-main-label bg-white" style="z-index:2;width:135px;">Oficiales de Negocios</label>
+
+                <div class="form-check my-4">
+                    <input type="checkbox" class="form-check-input" id="emailNotify" ng-model="Notify">
+                    <label class="form-check-label text-justify" for="emailNotify">Notifica al Oficial de Negocios</label>
+                </div>
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-success" ng-click="assign()"><i class="fas fa-check-circle mr-1"></i>Asignar</button>
+                <button class="btn btn-danger" data-dismiss="modal"><i class="fas fa-ban mr-1"></i>Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
