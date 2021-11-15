@@ -22,20 +22,26 @@ namespace scoreapp.data.Services.Classes
         private readonly Context _db;
         private readonly IWebHostEnvironment _env;
         private readonly IDataProtectionProvider _provider;
+        private readonly List<Config> _allSettings;
         public UsersClass(Context db, IWebHostEnvironment env, IDataProtectionProvider provider)
         {
             _db = db;
             _env = env;
             _provider = provider;
+            _allSettings = _db.Settings.ToList();
         }
         [SupportedOSPlatform("windows")]
         public List<User> Index()
         {
             try
             {
+                IDataProtector _protector = _provider.CreateProtector(Config.private_key);
                 
                 List <User> Users = new List<User>();
-                using (DirectoryEntry entry = new DirectoryEntry("LDAP://alaver.local/dc=alaver,dc=local", $@"ALAVER\EPAYIT", "Alaver22", AuthenticationTypes.ServerBind))
+                using (DirectoryEntry entry = new DirectoryEntry($"LDAP://{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "	Ldap.Host").Value)}/{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "Ldap.DN").Value)}", 
+                    $@"ALAVER\{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "Ldap.Username").Value)}", 
+                    $"{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "Ldap.Password").Value)}", 
+                    AuthenticationTypes.ServerBind))
                 {
 
                     DirectorySearcher search = new DirectorySearcher(entry);

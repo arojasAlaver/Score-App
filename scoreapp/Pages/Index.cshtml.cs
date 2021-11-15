@@ -92,7 +92,7 @@ namespace scoreapp.Pages
             }
             catch (Exception ex)
             {
-
+                _logger.LogError(ex.Message);
                 throw;
             }
         }
