@@ -442,7 +442,7 @@ namespace scoreapp.data
                 UpdatedAt = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
             };
             var password = new PasswordHasher<User>();
-            string Password = password.HashPassword(user, "1WlRuNENCjWreTFm0mLaM2");
+            string Password = password.HashPassword(user, Environment.GetEnvironmentVariable("ADMIN"));
             user.Password = Password;
 
             modelBuilder.Entity<User>().HasData(new
