@@ -39,7 +39,7 @@ namespace scoreapp.data.Services.Classes
                 
                 List <User> Users = new List<User>();
                 using (DirectoryEntry entry = new DirectoryEntry($"LDAP://{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "	Ldap.Host").Value)}/{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "Ldap.DN").Value)}", 
-                    $@"ALAVER\{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "Ldap.Username").Value)}", 
+                    $@"{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "Ldap.Username").Value)}", 
                     $"{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "Ldap.Password").Value)}", 
                     AuthenticationTypes.ServerBind))
                 {

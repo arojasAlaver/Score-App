@@ -199,6 +199,13 @@ namespace scoreapp.data
                     Value = _protector.Protect("0"),
                     CreatedAt = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
                     UpdatedAt = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+                },new Config()
+                {
+                    Id = Guid.NewGuid(),
+                    Setting = _protector.Protect("Domain"),
+                    Value = _protector.Protect("ALAVER"),
+                    CreatedAt = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
+                    UpdatedAt = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
                 }
             });
 

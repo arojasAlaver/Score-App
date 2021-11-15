@@ -47,10 +47,10 @@ namespace scoreapp.Api
                 List<User> Users = new List<User>();
                 await Task.Run(new Action(() =>
                 {
-
+                
                     IDataProtector _protector = _provider.CreateProtector(Config.private_key);
                     using (DirectoryEntry entry = new DirectoryEntry("LDAP://alaver.local/dc=alaver,dc=local",
-                        $@"ALAVER\{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "Ldap.Username").Value)}",
+                        $@"{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "Domain").Value)}\{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "Ldap.Username").Value)}",
                         $"{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "Ldap.Password").Value)}", AuthenticationTypes.ServerBind))
                     {
 

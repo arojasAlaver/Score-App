@@ -50,7 +50,9 @@ namespace scoreapp.data.Services.Classes
                     }
                     else
                     {
-                        using (DirectoryEntry entry = new DirectoryEntry("LDAP://alaver.local/dc=alaver,dc=local", $@"ALAVER\{Username}", Password, AuthenticationTypes.ServerBind))
+                        using (DirectoryEntry entry = new DirectoryEntry("LDAP://alaver.local/dc=alaver,dc=local", 
+                            $@"{_protector.Unprotect(_allSettings.SingleOrDefault(x => _protector.Unprotect(x.Setting) == "Domain").Value)}\{Username}"
+                            , Password, AuthenticationTypes.ServerBind))
                         {
 
                             DirectorySearcher search = new DirectorySearcher(entry);
