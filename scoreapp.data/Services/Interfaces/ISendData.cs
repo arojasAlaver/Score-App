@@ -11,5 +11,6 @@ namespace scoreapp.data.Services.Interfaces
     {
         public Task<Person> Store(Person app);
         public Task<int> SaveAsync();
+        
     }
 }

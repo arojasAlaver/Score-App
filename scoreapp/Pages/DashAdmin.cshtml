@@ -1,0 +1,302 @@
+﻿@page
+@model scoreapp.Pages.DashAdminModel
+@{
+    ViewData["title"] = "Tablero";
+}
+
+
+<div ng-app="indexModule" ng-controller="indexController">
+    <div class="container">
+        @*<div class="row">
+            <div class="col-12 d-flex justify-content-end">
+                <div class="grid justify-items-stretch">
+                    <div ng-class="{'bg-success':ConnectionState=='Connected','bg-warning':ConnectionState=='Connecting','bg-danger':ConnectionState=='Disconnected'}"
+                         class="justify-self-end rounded-lg p-2"><i ng-class="{'fa-wifi':ConnectionState=='Connected','fa-wifi-slash':ConnectionState!='Connected'}" class="fal mr-1"></i>{{ConnectionState}}</div>
+                </div>
+
+
+            </div>
+        </div>*@
+        <audio class="audio-player" allow="autoplay" src="~/audio/system-fault-518.mp3" type="audio/mpeg"></audio>
+        @*<hr class="my-1" />*@
+
+        <!-- Section: Block Content -->
+        <section class="">
+
+            
+            <div class="row">
+
+                
+                <div class="col-lg-4 col-md-12 ">
+
+                    
+                    <div class="card mt-3">
+
+                        <div class="">
+                            <i class="far fa-money-bill-alt fa-lg primary-color z-depth-2 p-4 ml-3 mt-n3 rounded text-white"></i>
+                            <div class="float-right text-right p-3">
+                                <p class="text-uppercase text-muted mb-1"><small>Solicitudes En Proceso</small></p>
+                                <h4 class="font-weight-bold mb-0">{{results.pre_aproved}}</h4>
+                            </div>
+                        </div>
+
+                        <div class="card-body pt-0">
+                            <div class="progress md-progress">
+                                <div class="progress-bar bg-info" role="progressbar" ng-style="{'width': results.percentPre_Aproved+'%'}" aria-valuenow="{{results.percentPre_Aproved}}" aria-valuemin="0"
+                                     aria-valuemax="100"></div>
+                            </div>
+                            <p class="card-text">Solicitudes pre-aprobadas: {{results.percentPre_Aproved |number:2}}% de {{applications.length}}</p>
+                        </div>
+
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    
+                    <div class="card mt-3">
+
+                        <div class="">
+                            <i class="fas fa-thumbs-up fa-lg teal z-depth-2 p-4 ml-3 mt-n3 rounded text-white"></i>
+                            <div class="float-right text-right p-3">
+                                <p class="text-uppercase text-muted mb-1"><small>Solicitudes Aprobadas</small></p>
+                                <h4 class="font-weight-bold mb-0">{{results.aproved}}</h4>
+                            </div>
+                        </div>
+
+                        <div class="card-body pt-0">
+                            <div class="progress md-progress">
+                                <div class="progress-bar bg-success" role="progressbar" ng-style="{'width': results.percentAproved+'%'}" aria-valuenow="{{results.percentAproved}}" aria-valuemin="0"
+                                     aria-valuemax="100"></div>
+                            </div>
+                            <p class="card-text">Solicitudes aprobadas: {{results.percentAproved |number:2}}% de {{applications.length}}</p>
+                        </div>
+
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    
+                    <div class="card mt-3">
+
+                        <div class="">
+                            <i class="fas fa-ban fa-lg bg-danger z-depth-2 p-4 ml-3 mt-n3 rounded text-white"></i>
+                            <div class="float-right text-right p-3">
+                                <p class="text-uppercase text-muted mb-1"><small>Solicitudes Rechazadas</small></p>
+                                <h4 class="font-weight-bold mb-0">{{results.denied}}</h4>
+                            </div>
+                        </div>
+
+                        <div class="card-body pt-0">
+                            <div class="progress md-progress">
+                                <div class="progress-bar bg-danger" role="progressbar" ng-style="{'width': results.percentDenied+'%'}" aria-valuenow="{{results.percentDenied}}" aria-valuemin="0"
+                                     aria-valuemax="100"></div>
+                            </div>
+                            <p class="card-text">Solicitudes rechazadas: {{results.percentDenied |number:2}}% de {{applications.length}}</p>
+                        </div>
+
+                    </div>
+                    
+
+                </div>
+                
+
+            </div>
+            
+
+        </section>
+
+
+        <section class="mb-2">
+
+            <div class="card">
+                <div class="card-body mr-md-1 pb-0  pt-0">
+
+                    
+                    <div class="row mb-1">
+
+                        
+                        <div class="col-md-8 mb-4">
+
+                            <canvas id="casesCount" height="100"></canvas>
+
+                        </div>
+                        
+                        
+                        <div class="col-md-4 mb-1 mb-md-0">
+
+                            <h5 class="text-center font-weight-bold mb-4">Información Anual</h5>
+
+
+
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted">En Proceso</small>
+                                <small><span><strong>{{results.pre_aproved}}</strong></span>/<span></span>{{applications.length}}</small>
+                            </div>
+                            <div class="progress md-progress">
+                                <div class="progress-bar bg-warning" role="progressbar" ng-style="{'width': results.percentPre_Aproved+'%'}" aria-valuenow="{{results.percentPre_Aproved}}"
+                                     aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted">Aprobadas</small>
+                                <small><span><strong>{{results.aproved}}</strong></span>/<span></span>{{applications.length}}</small>
+                            </div>
+                            <div class="progress md-progress">
+                                <div class="progress-bar bg-success" role="progressbar" ng-style="{'width': results.percentAproved+'%'}" aria-valuenow="{{results.percentAproved}}"
+                                     aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted">Denegadas</small>
+                                <small><span><strong>{{results.denied}}</strong></span>/<span></span>{{applications.length}}</small>
+                            </div>
+                            <div class="progress md-progress">
+                                <div class="progress-bar bg-danger" role="progressbar" ng-style="{'width': results.percentDenied+'%'}" aria-valuenow="{{results.percentDenied}}"
+                                     aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                        </div>
+                        
+
+                    </div>
+                    
+                    
+                    <!--<div class="row text-center">-->
+                    
+                    <!--<div class="col-md-4 mb-4 mb-md-0">
+
+                    <p class="text-success mb-1"><i class="fas fa-caret-up mr-2"></i>17%</p>
+                    <p class="font-weight-bold mb-1">$35 210</p>
+                    <p class="text-uppercase mb-md-0">PRE-APROBADAS</p>
+
+                </div>-->
+                    
+                    
+                    <!--<div class="col-md-4 mb-4 mb-md-0">
+
+                    <p class="text-danger mb-1"><i class="fas fa-caret-down mr-2"></i>17%</p>
+                    <p class="font-weight-bold mb-1">4 578</p>
+                    <p class="text-uppercase mb-md-0">APROBADAS</p>
+
+                </div>-->
+                    
+                    
+                    <!--<div class="col-md-4 mb-0">
+
+                    <p class="text-dark mb-1"><i class="fas fa-caret-left mr-2"></i>0%</p>
+                    <p class="font-weight-bold mb-1">678 934</p>
+                    <p class="text-uppercase mb-0">DENEGADAS</p>
+
+                </div>-->
+                    
+                    <!--</div>-->
+                    
+
+                </div>
+            </div>
+
+
+        </section>
+
+        <section>
+
+            <div class="card">
+                <div class="card-body mr-md-1 pb-0 pt-0">
+
+                    
+                    <div class="row mb-1">
+
+                        
+                        <div class="col-md-8 mb-4">
+
+                            <canvas id="casesMoney" height="100"></canvas>
+
+                        </div>
+                        
+                        
+                        <div class="col-md-4 mb-1 mb-md-0">
+
+                            <h5 class="text-center font-weight-bold mb-4">Información Anual</h5>
+
+
+
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted">Montos Solicitados</small>
+                                <small><span><strong>{{results.total | currency:"":2}}</strong></span> / <span></span>{{results.total | currency:"":2}}</small>
+                            </div>
+                            <div class="progress md-progress">
+                                <div class="progress-bar bg-success" role="progressbar" ng-style="{'width': results.percentTotal+'%'}" aria-valuenow="{{results.percentTotal}}"
+                                     aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted">Montos Aprobados</small>
+                                <small><span><strong>{{results.totalAproved | currency:"":2}}</strong></span> / <span></span>{{results.total | currency:"":2}}</small>
+                            </div>
+                            <div class="progress md-progress">
+                                <div class="progress-bar bg-success" role="progressbar" ng-style="{'width': results.percentTotalAproved+'%'}" aria-valuenow="{{results.percentTotalAproved}}"
+                                     aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                        </div>
+                        
+
+                    </div>
+                    
+                    
+                    <!--<div class="row text-center">-->
+                    
+                    <!--<div class="col-md-4 mb-4 mb-md-0">
+
+                    <p class="text-success mb-1"><i class="fas fa-caret-up mr-2"></i>17%</p>
+                    <p class="font-weight-bold mb-1">$35 210</p>
+                    <p class="text-uppercase mb-md-0">PRE-APROBADAS</p>
+
+                </div>-->
+                    
+                    
+                    <!--<div class="col-md-4 mb-4 mb-md-0">
+
+                    <p class="text-danger mb-1"><i class="fas fa-caret-down mr-2"></i>17%</p>
+                    <p class="font-weight-bold mb-1">4 578</p>
+                    <p class="text-uppercase mb-md-0">APROBADAS</p>
+
+                </div>-->
+                    
+                    
+                    <!--<div class="col-md-4 mb-0">
+
+                    <p class="text-dark mb-1"><i class="fas fa-caret-left mr-2"></i>0%</p>
+                    <p class="font-weight-bold mb-1">678 934</p>
+                    <p class="text-uppercase mb-0">DENEGADAS</p>
+
+                </div>-->
+                    
+                    <!--</div>-->
+                    
+
+                </div>
+            </div>
+
+
+        </section>
+
+
+    </div>
+</div>
+
+
+
+
+@section scripts{
+    <script src="~/lib/aspnet-signalr/signalr.min.js"></script>
+    <script src="~/js/DashAdmin/Index.js"></script>
+}

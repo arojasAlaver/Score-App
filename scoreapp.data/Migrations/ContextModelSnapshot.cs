@@ -51,123 +51,123 @@ namespace scoreapp.data.Migrations
                     b.HasData(
                         new
                         {
-                            PermissionId = new Guid("7604b0ae-cb90-4b6c-b90b-eee8467220d7"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("61b931f3-2c95-4721-b7a8-1943017a2131"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("a1ae4940-0101-421f-b47e-4100f08fefc8"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("72cdd7be-5544-4227-9845-b936a5329fe0"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("7ce75f0f-98fe-486a-9429-5734404b0b05"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("08f89e69-22a1-416c-bba9-f879a95a0a76"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("368ec5b8-7d1a-411d-a731-d5cdef785a3c"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("54d1b147-ad48-49ca-8f24-a948abd48e06"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("131fe351-5680-49ad-8925-9e50deb52792"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("96588204-bb74-4da6-8435-8a68d9c7483b"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("0bc92952-08eb-4303-baf9-c1f788adfc8e"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("605611e4-e294-40c0-8e10-9508ffc777c3"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("9c2a7799-6cc8-4670-a3ac-bfdd327f4c88"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("e9255b28-b18a-4ded-b05f-71bafe72bff3"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("a3942513-e2e0-4ca6-a0e3-c02a3f8e0dc8"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("663b706a-449f-4a9d-acfe-005e9392e3aa"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("ab5f73a9-7071-4e10-bec3-4be55f72adcf"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("dc83b4f6-dcc7-4ab1-a9f3-e0428e6b93ee"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("1e5386a7-4ca9-478b-af1e-146234bda2d4"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("e4b6c506-2ff2-407c-8bb6-4243f10bf254"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("849f8b73-eb20-47a9-a40a-4b5301e18bb8"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("3e890718-0077-4b75-aa27-40324a9a4420"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("e7325fec-1e19-412f-a1be-43f01dbe889b"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("0b487ca9-257c-473f-ba0f-13dc37a2f8d7"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("dcf791fa-1552-430a-b282-e7d5e16893bd"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("a64aa401-7ad4-4147-ba7f-d59262b992dd"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("d12eaaf5-77e5-407e-b890-c8a58f5fd42e"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("8bb1e7a6-4f17-4a12-a81c-79a8ae598599"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("0c7659f4-81dc-46a1-9688-e8b6e5faa471"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("c1e6cfec-9590-4953-b31e-387cad717f05"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("e004bdb2-1aa3-43d2-92c6-9e544f144075"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("600a3c17-7276-488f-961b-12fdff516a0e"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("20be5f0a-7176-4842-be6a-47d0608fd8a7"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("eb2c0823-1040-4b1b-b930-29919ba76be6"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("35400278-9d52-461b-ad51-90b99a1f980e"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("16c9d900-0780-4ec5-b4e6-aaad06a5c42e"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("cb5e286b-be2c-4c91-8f9b-a9f76135ed6e"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("39f78798-bcf0-4b0e-829a-99400348c7ff"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("b05bc5de-dcc8-419f-bbef-20d5ead9b3cf"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("939bb875-21bb-481f-b55c-86f848244e49"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("4b69cc89-4463-4715-87db-f7627c377b95"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("f243f0bc-3452-4e3d-847f-6fd790050bb7"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("7bea32db-152b-49f3-af09-d45548479e79"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("46e18edf-5afa-4959-b872-3849679e3ba8"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("16824188-348f-4113-8ce1-ae252bbeb82f"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("695a94c6-6b1a-40f0-b9b0-b627f0ee3209"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         },
                         new
                         {
-                            PermissionId = new Guid("9f56915b-45a3-438b-8c33-c759622f43b1"),
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81")
+                            PermissionId = new Guid("4830b7b8-3f90-4316-be0c-27f3eed311e3"),
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d")
                         });
                 });
 
@@ -184,8 +184,14 @@ namespace scoreapp.data.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<decimal>("AproveAmount")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ExecutiveAssignedId")
                         .HasColumnType("int");
@@ -193,6 +199,9 @@ namespace scoreapp.data.Migrations
                     b.Property<decimal?>("Incomes")
                         .IsRequired()
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Office")
+                        .HasColumnType("int");
 
                     b.Property<int?>("OfficialAssignToId")
                         .HasColumnType("int");
@@ -323,91 +332,99 @@ namespace scoreapp.data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("00c05a1c-f27d-45a9-adac-734fbfd57f7f"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6LMk2_nxN-VIlVnqTJF13XxPB8TnZEjxD9Qoc_-aQoypZ1kMzlwxc5nzOyuYmtf6R1Jc7i-7TaWCJ3_J4Jx5uXj_Dhm7NOTAcNyCSRLPCbtlw",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6LESiHIjqoY3iJFoj1H0OFVq3D-X4F0KWLMOHFTbQKwIK1VCEHW2dViVBie6wg_dW62-tMUpYA5Bfs-b2lqqZ3xnEiQc5FODGzTkYjCX89STg"
+                            Id = new Guid("877ac9af-0c4f-408b-bb69-9409f440f3aa"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6J3CVrTsWrWo82AHNJgUw3R-O3-G5U98z6rajhJ-ekcZtSyFU2s7CN4O5uYMKKUfD1NgQI6Fvh2mF9IaiaA-y-uvLdCRPeoXPVP6wDoZR6t_Q",
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6J67HD0GY5C8B340HwjVPPV_7Cg8XEog7S2ZVz7lygwx-5sO65VaSqoSc9EvVdJFtl9_iVtP2Uxhki4GJ2ln-EOdEJ6hcM0XFjJQHxVRLbLfw"
                         },
                         new
                         {
-                            Id = new Guid("83b3898f-fb65-49da-bcd1-ed876419a455"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6KfljevfytI-hkDiMkV0nb32RkXcbRWI_52xKdP9akiv97X_yskueXCTYsgdcAsq0Cmb7dUB64OIkymvVBz3-hE1hMJFNBUP78nUbTGRl0IzQ",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6JBsdjwMRg2LSZKQuGfOkCCag-rdPjZWL1vR_Tzxf5PNvBO__dZonEcCK71hKJ8E-KCS3Y37nKcVKxCheQT1smd-TC4kNynb0qKlf6N8-WNEQ"
+                            Id = new Guid("6ad8a77e-f6dc-4aff-aa90-cd82af44f260"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6IXhO-AvNqPxaPG-QpN4liOkjC67ZfZg4JkdB1okJBdA4ljhr5dqy6ewpfo_cUq3M6X8Xlry2TtoNNQY-lSCcINqtTJT2jvVuQhPzmFQH0epQ",
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6IFVmaGsPtUNGo3BVnWDkvx2h5bDG5Eq9m_xkV8BDi8GjTtbtqqkqM1LhrlLZvLItvn_OssnSBVZTYZUeYHUszVca7eImTi4hDQpZyUn-kmuA"
                         },
                         new
                         {
-                            Id = new Guid("625f60d7-3476-4c12-a154-f8b4bd8f8705"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6LcsCA-e7oafUtkE7BTZq065Mf_LpKii_sXR5NVWDbhCvON_6ULEplTGLx4rb7wdUc3EHw96tAEnQQjTGE3vKXEdQKxeSS7BU4kgtB3fHjzHA",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6LaM8X_ki1P1KzKohLS4T-BzRr2IR9gTGZcNSrIe5ft1oXhP9JRAeYiub238BmUNaRyOhD_4wHNcD1bu-wGMxzf4gYW2F6ncMJ-SzcHZ8H0ux37WGmiGLx2vcIBi2-qE8G3i656Xl9K66gcI7aHBMY0"
+                            Id = new Guid("4a23f822-ed7b-4816-9757-caa866f5f35c"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6IrkKftn8a4sBFhlk8FQTxzD8r7uyqlI-Hr-X88Hpn2JC3XNFmaISFr9gRO3py4GpLs3Q0Am4df88SwkOu3QegBlNIQKTmO5kHSTuznWcV27A",
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6J5LOzxbXUUmOnh96usGtbTQiEz6uGl0k-GNjqwlkx9p2IyUl6evSQZbozF7WD6wUp-JlQ0qkIp0DtjdsT0rOTZaybMjH2XOmzJcQNO9DUfgVyvT1gB2NL6GYHHITjUG1sOduESlA3Gu6fVNfGG90FR"
                         },
                         new
                         {
-                            Id = new Guid("c66b989e-fd2a-4c2d-98fb-4a33a975dad2"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6JXR9gNF2G1TH8KoDxlVNv0CUGpEQtkjK2_zSZ_P0AJWLWYvMuHpkNu2Ieid6YWQvDYYwecy2gAwyyMCR_IuNqBXOS0j7xqODPVq6VNJtAdJw",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6Ix9RiNZBj6OCUitNZS0DFvGLFYSXR0SjhmSth7YGqOsthGJJtnB8VjfaNOGodnJ6Le9sGh0yNgVETKp_Nt4J8decyOrJ3eSDGHaJbbI-pBQdAzLBzCnAGJRv38OktqLwQ"
+                            Id = new Guid("2c3b3b21-0981-4889-96a7-01ec9a9cf833"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6I3i76QQhuabGhYQMYSsFANlAtpYin5_he5SIg6MDyLu20L3sMbcuHs9yTILwMiftM68ZTOrCdyEaUc7Z43idyUoHBaqWb951A0Sp5eh9tIaQ",
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6J9rg2zr63BC4FeaCpqvNQhG8c04yUe4YR3Zyr93MGgvEAMntLaQvjTk8Wz7j2XDkGSD0Vg474adomh_Hv5PNiOJ3sN8cFbadARIyXH_E8VsPSW99E0liXxdN83QxDfE6E"
                         },
                         new
                         {
-                            Id = new Guid("cdeae839-ad90-489c-9d71-361689ce67ea"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6I5m5l4JfplZhiaAIUj2cdMEfhLf8FbkdZgHydarOYkXx5v0IcKkcQ1s0d_T3J1_zghRUz39dSxkehxdawCBAHl04qeIIN6WYMadbftI86i3A",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6KgjMpBmPZqc2ZPCIr6lehhoEG170NoB3X52xGOSFmLlyDTICFDI5kSzPbajW6QABvqUkbNzJ32_YgU0DNJ_clxxCLNDJYWnwgHWvJKpLAJbg"
+                            Id = new Guid("c678979c-a7c2-4c39-b712-65511a965c4c"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6LB2U1DVHuQP753nmSNPyq24gWZMZwVMzpLJ-qt6EUg0DKFdDSe8JlZo5cN0B7F84r6QmGUOXe0Or0cWHcPlCzKQt05qb5TY_5a-fe-2eSgHw",
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6LLeKijkP5QDlCY6KpFKjJzEtNacQeoS4QYwlD912d5Sfl4Pvf-zWIk0XMd6yXQHQeasuk-27CaAeB7zyftmTajWpUgW8Zs6opi5zgaXsGWIg"
                         },
                         new
                         {
-                            Id = new Guid("f8b07541-2ed6-48f1-921c-cd5c62ad38e8"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6JqUEIL5jXTFOyG5ee3cHAhRts1M0aG3TFmT3uSeTPe53G5EZvv67bhI71aikf_D5La0ol0VXtu-9aU1vzWABp3p0q3LKGBtJXBGPQX1MwR4A",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6LAgeu2lY_7etzSMTd5rOMfFAPguv_ztoRuBO2FI3ukGH9-Dw1Yd3dv6xI3SxfzJBPdcyMjRq6AHTH1Mpzlxrt7zRPg1m30DBzZq1SfW4yWEQ"
+                            Id = new Guid("ab934932-cc29-43b4-9482-c1046235e374"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6Knq-qDy2QqDMKvynlyBv_88nBVhWuRuO_obk52vr2sfOOGU6L_pwjgzOZfBiiB5N6Fyal3xROpeKWmL9RRTEWxZLiGgRDh5KwVKrD1l3UcWQ",
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6JP_TaOlaAKxo26IQtrgO0Tw1znbw1zMNkPOCs5FRxOmGWSruYWuSLG1FEOKyzt2iamMYN2NV7BBu5bySI3kqgnwUmnWOEyKXTvnaa4v5FQ-Q"
                         },
                         new
                         {
-                            Id = new Guid("33320b96-5d8c-49e1-97c2-cc5173264e19"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6IzS2M4XAeh-v8ZZa_5tMbiInNow7r7tlS4tqdaVEFXVjgrTtBVAYLGOCye402OeSa4tboeXlDbMhrCkRtLtVpvDSv8Q1-PcCavVnITEBiLvw",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6K2G-19LtIj3TAJtKMSl5ByVL_udRgJlQN1_b2VhzPScl6JpVpMluDAnMCK50--pCWMAt3oqBe85ztXL6MN6y_CHkk7tTecmVMyCiBBnQq71A"
+                            Id = new Guid("d18e163d-6e62-44b8-bf57-a375dfa0279e"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6JHa72ZSl95tz31-yoKglZ9g-CF6l63-CnNU8Go3ADbRAZN6ArEuEf2uuOnSggPDE6TcApC0_0orTf4ePvxWZpacICybHaUDTaKQYKVz5e-zA",
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6KueyB0FKyPB5B0rxPs0x_JpgWryk5rtn5wcf70EtsN9TI8vWLg40DzpB5GE2YN_E752ldpyagVIGem56GMs9byIaEsJlKdXW2NHtZHscUHOw"
                         },
                         new
                         {
-                            Id = new Guid("c2304986-a40e-4f93-a37e-bf8fdf32ec19"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6KlV1uglBxIhuihUeFVyQFRfY4NJ3cuOn_-z7igcxfO8xQaDZhoaYR-8Xz2RZ3gvx0YfXyMhleChrjlkNfMJWeHkClKUyZFRpiMVv-ykc9xmw",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6IYoinYE8mZdi2yNYv_nfIvmRXSbjZGMSH7k8u7OeWMEZFuIoBfPTjcBIZoBqAaNaBfXoLZJqe3VKHVf4iXv3IdnJvKayYVDu4_eRaJzCzlBPHskWiYgCGVDoeqPpozRaE"
+                            Id = new Guid("96879612-0b86-42c1-be9f-6f0661a31766"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6JwBMXRhd5eeL9jIpSbQ7XL5_Q6Zp-Zck1u9D2ARYxhTSOR-Dz-RuyOAdox2h2QE0CeVjhtQVGcChDmwnhWmM2e-mTMJ-a5EX9AVyjlsN2JxA",
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6IiYbvT7hqHtYLuafGZlSR7fPTPZsfyB31bGjLIahUEAXfuIgrRtX7MV2y1SYnqOJsmH1TAJe5pw09Wu7PTuVu6ayQVpcJoNchfEVa45fL-UpMERrmpn-h3W_pkYiQ1aPc"
                         },
                         new
                         {
-                            Id = new Guid("e5965aea-ebe7-478b-84da-e72a2741b62b"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6Izs0Shy-gtwlwz-P3Jx9tpUVKNYwTuTwHDgXzHVrwXlExjD4nI5wB5imE_qAB1tQbEw6Xru505CEJHgYtY0XJODEVt3HEbtb0x0e73n1rbUA",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6Kod9uCUaizvWZH7m1Xbx226jYkMNx1pcGKJrfaJwz5mlvG20uuUzRY69QhuCJE_LkB0kvNy9qSQWbBKfNNM-I46K03u7y40KVlKydj6_pwpw"
+                            Id = new Guid("a960a5df-ef8d-4364-a2a4-971610b2c5ab"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6JwKV-o0E_r5NlpQ6CJI4DH-z_9tFIozzXbWERSaID1oPCj1krYyugIcd0X26J92iors9nqsITwcpgT5TFnK5L5wQ9hH267jvsXZW1HD42eqQ",
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6IWeTCwwgscrBRP5sf0QnYu8YsAbKvTRYBT41W-c_9vt73wtl4Y5GDn2e4jMQBIapIKBxNJaGbsB-ZPY3FnTqta2HLxhF7fSpVA3IIcPNYoPQ"
                         },
                         new
                         {
-                            Id = new Guid("82d10de5-9c41-4dba-aac3-c779859e0660"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6LG-1nGaIizQDNdUAHFrSCIKtS-k9QVb-mVJw4CRZnjSreaL7A9XqGWkEP80Yl7ORhKrN_gKeObFVqx0yodMCyuctQVvQXHZpW25khf3dfqJw",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6Injo_nJKtsAuujHAqeXRaeu1fBfceTMSS4-Uu36kgF3TkYsLZLiJZJb5gQ7skx-ElWifFYD4o6PojDAw65it-0ihy5YKrrfQcj1wKbO-I7Dg"
+                            Id = new Guid("2ecfaab4-763b-47e7-9873-eea52975c0c4"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6LJdw5xeUSjF8BoGleV4CbZzgwgD1H7Q4PEbmoUBASz0am9ewBQQQR-kJnZnNELVE_OVPi_5JdPNfa49ZXRO3NYbHpUQdSe_RTfAQgOEaHt1g",
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6IrMRtmVeXLq-5sdysYOT6eCPXrhioj9Pyics4QCcjKHI1KDdi4fTbcESEudCzh6Ho5zAlRK3Cqg_HByOimSy9tkh97y8idPlA_H-PwGeUqOg"
                         },
                         new
                         {
-                            Id = new Guid("06e05c48-5080-48ec-840e-cc4f84c1193d"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6JmO6ZW5u8_0sQZabxM_jx0yHb6LrIozwASDDNLQfWo470Lmzkzf-rtySmsKVikoU1sEawS8tGMzB8JLv9od7pwVXWQxSEcuuFx1ZzJ5KFl7g",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
-                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6IBXxn-XyvkPqm6gBkCz7Cz_q2AsKFIBGhSl6Gt9hiB6jXa8q-lvWIm98KXkvOPca5iHM2T_OKHKKbf4uyauXvtzYm5bljS4_jZcEHiL0ZXHA"
+                            Id = new Guid("3beb5cc7-17b7-4263-bc37-fa8824c12322"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6KghKDsfkccqV_rws2dzqlfLMA2FvTqvOScJjmNYUJnWSUunnZDcVzjVlcJakgFwF_Hw5-1PUVMCxCVqWVmB7iwHkny2AxTA0a8nNf27JddEA",
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6LMeIfUtZYdVQrzyevxmw3A4ftME53RKBup7faZnMGRMGGr66xtah3ncvayfy7Y4coiXufJ7TmNeRrm-yk1AjWLLPdjtdystySemJCceWC3YA"
+                        },
+                        new
+                        {
+                            Id = new Guid("37c20aad-a46e-4e38-b12b-09ce99eb855c"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Setting = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6IbvAcdxlC5H_ICfOrErxnywJuHhIDsuF4ilWU02vCzplmD4EVrsWmh46iZ5Ez5pGNwDEczhhTLmtccEzKcVxq4yYLuE9h-u8MWQKPfJvJGZA",
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
+                            Value = "CfDJ8K8zXOoJ6PVKg0EdUGTqX6IQKOloMVnrQ5pFfqLAfRN6uJlgKyw0TJXLTg5D7VzvEPzbxwUW93mVZaBtJJz-uO_pjBr0xr4AvYtRq76KHLmzksL_TOAblTakNfQ6R6JGQw"
                         });
                 });
 
@@ -467,8 +484,7 @@ namespace scoreapp.data.Migrations
                     b.Property<int>("Province")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TimeInCompany")
-                        .IsRequired()
+                    b.Property<int>("TimeInCompany")
                         .HasColumnType("int");
 
                     b.Property<int>("TypeActivity")
@@ -511,171 +527,171 @@ namespace scoreapp.data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7604b0ae-cb90-4b6c-b90b-eee8467220d7"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("61b931f3-2c95-4721-b7a8-1943017a2131"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Config.View",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("a1ae4940-0101-421f-b47e-4100f08fefc8"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("72cdd7be-5544-4227-9845-b936a5329fe0"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Config.Create",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("7ce75f0f-98fe-486a-9429-5734404b0b05"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("08f89e69-22a1-416c-bba9-f879a95a0a76"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Config.Edit",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("368ec5b8-7d1a-411d-a731-d5cdef785a3c"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("54d1b147-ad48-49ca-8f24-a948abd48e06"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Config.Delete",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("131fe351-5680-49ad-8925-9e50deb52792"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("96588204-bb74-4da6-8435-8a68d9c7483b"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.User.View",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("0bc92952-08eb-4303-baf9-c1f788adfc8e"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("605611e4-e294-40c0-8e10-9508ffc777c3"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.User.Create",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("9c2a7799-6cc8-4670-a3ac-bfdd327f4c88"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("e9255b28-b18a-4ded-b05f-71bafe72bff3"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.User.Edit",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("a3942513-e2e0-4ca6-a0e3-c02a3f8e0dc8"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("663b706a-449f-4a9d-acfe-005e9392e3aa"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.User.Delete",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("ab5f73a9-7071-4e10-bec3-4be55f72adcf"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("dc83b4f6-dcc7-4ab1-a9f3-e0428e6b93ee"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Role.View",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("1e5386a7-4ca9-478b-af1e-146234bda2d4"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("e4b6c506-2ff2-407c-8bb6-4243f10bf254"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Role.Create",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("849f8b73-eb20-47a9-a40a-4b5301e18bb8"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("3e890718-0077-4b75-aa27-40324a9a4420"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Role.Edit",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("e7325fec-1e19-412f-a1be-43f01dbe889b"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("0b487ca9-257c-473f-ba0f-13dc37a2f8d7"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Role.Delete",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("dcf791fa-1552-430a-b282-e7d5e16893bd"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("a64aa401-7ad4-4147-ba7f-d59262b992dd"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Permission.View",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("d12eaaf5-77e5-407e-b890-c8a58f5fd42e"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("8bb1e7a6-4f17-4a12-a81c-79a8ae598599"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Permission.Create",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("0c7659f4-81dc-46a1-9688-e8b6e5faa471"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("c1e6cfec-9590-4953-b31e-387cad717f05"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Permission.Edit",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("e004bdb2-1aa3-43d2-92c6-9e544f144075"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("600a3c17-7276-488f-961b-12fdff516a0e"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Permission.Delete",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("20be5f0a-7176-4842-be6a-47d0608fd8a7"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("eb2c0823-1040-4b1b-b930-29919ba76be6"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Applications.View",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("35400278-9d52-461b-ad51-90b99a1f980e"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("16c9d900-0780-4ec5-b4e6-aaad06a5c42e"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Applications.Create",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("cb5e286b-be2c-4c91-8f9b-a9f76135ed6e"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("39f78798-bcf0-4b0e-829a-99400348c7ff"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Applications.Edit",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("b05bc5de-dcc8-419f-bbef-20d5ead9b3cf"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("939bb875-21bb-481f-b55c-86f848244e49"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.Applications.Delete",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("4b69cc89-4463-4715-87db-f7627c377b95"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("f243f0bc-3452-4e3d-847f-6fd790050bb7"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.GroupVariable.View",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("7bea32db-152b-49f3-af09-d45548479e79"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("46e18edf-5afa-4959-b872-3849679e3ba8"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.GroupVariable.Create",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("16824188-348f-4113-8ce1-ae252bbeb82f"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("695a94c6-6b1a-40f0-b9b0-b627f0ee3209"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.GroupVariable.Edit",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("9f56915b-45a3-438b-8c33-c759622f43b1"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("4830b7b8-3f90-4316-be0c-27f3eed311e3"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Permission.GroupVariable.Delete",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -767,17 +783,17 @@ namespace scoreapp.data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("963e229d-a461-422c-931f-b364f70dab0d"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Administrador",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("da83f7b0-1229-460c-85bf-c289bbb6149d"),
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("5c3b4a97-f3cb-4cc4-ad9e-87a144cbed18"),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Description = "Basico",
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified)
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -831,15 +847,15 @@ namespace scoreapp.data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             DisplayName = "Alaver Admin",
                             EmployerCode = 0,
                             IsLocal = true,
                             Mail = "",
-                            Password = "AQAAAAEAACcQAAAAEGbgwG8sr87WQQkdYRWd+L8nHYk4injPbNUctxdUvDZuxduTk94l/KG3UYpJ8HCu2g==",
-                            RoleId = new Guid("2e4a34e2-40fa-4506-a46a-766d60e9cb81"),
-                            TypeUser = 2,
-                            UpdatedAt = new DateTime(2021, 11, 1, 9, 33, 8, 0, DateTimeKind.Unspecified),
+                            Password = "AQAAAAEAACcQAAAAEDdhb0xCdqgDnzNTZTZrEfuK9ojTKqCbQh77/lwB/QWoxSQQ3s+nMZSXTcyPO53tYQ==",
+                            RoleId = new Guid("963e229d-a461-422c-931f-b364f70dab0d"),
+                            TypeUser = 0,
+                            UpdatedAt = new DateTime(2021, 11, 9, 8, 40, 58, 0, DateTimeKind.Unspecified),
                             Username = "Admin"
                         });
                 });

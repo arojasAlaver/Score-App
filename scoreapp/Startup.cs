@@ -24,6 +24,9 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using scoreapp.Hubs;
+using scoreapp.notifications.Services.Interfaces;
+using scoreapp.notifications.Services.Classes;
 
 namespace scoreapp
 {
@@ -57,6 +60,7 @@ namespace scoreapp
                 options.Conventions.AddPageRoute("/Roles/RolesManagment", "7e793c11-acc7-4cf5-8592-bc2025f529c7");
                 options.Conventions.AddPageRoute("/Roles/PermissionManagment", "478d5d45-d8d5-4433-bb8e-451bf62b6d61/{Id}");
                 options.Conventions.AddPageRoute("/Dashboard", "75e56f57-3036-460f-b3c4-d3789e0fd5fc");
+                options.Conventions.AddPageRoute("/DashAdmin", "13a34cf3-70da-49a2-8e69-9fec42e0e3db");
                 options.Conventions.AddPageRoute("/Applications/Index", "6b4ad353-c211-4849-a8ba-a70e4bdfdb0c");
                 options.Conventions.AddPageRoute("/Variables/Index", "9e4256db-5990-4151-a88e-e1d490482410");
             });
@@ -78,6 +82,7 @@ namespace scoreapp
             services.AddHttpContextAccessor();
             services.AddLogging(Config => Config.AddSerilog(dispose: true));
             ILogger<Startup> _log = new LoggerFactory().CreateLogger<Startup>();
+            services.AddSignalR();
 
             services.AddEntityFrameworkSqlServer();
 
@@ -112,6 +117,7 @@ namespace scoreapp
             services.AddScoped<IAuthentication, AuthenticationClass>();
             services.AddScoped<IUsers, UsersClass>();
             services.AddScoped<IEmailNotify, EmailNotifyClass>();
+            services.AddScoped<IApplicationNotification, ApplicationNotification>();
 
 
             services.AddAuthorization(options => 
@@ -173,7 +179,7 @@ namespace scoreapp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerfactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerfactory,IApplicationNotification _notify)
         {
             if (env.IsDevelopment())
             {
@@ -198,7 +204,10 @@ namespace scoreapp
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapHub<ApplicationNotificationHub>("/ApplicationNotificationHub");
             });
+
+            _notify.Config();
         }
     }
 }

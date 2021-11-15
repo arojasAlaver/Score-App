@@ -57,7 +57,7 @@
                             </td>
                             <td class=" pt-0 pb-0">{{application.score}}</td>
                             <td class=" pt-0 pb-0">{{application.amount | currency}}</td>
-                            <td class=" pt-0 pb-0">{{application.status}}</td>
+                            <td class=" pt-0 pb-0" ng-class="{'text-danger':application.status=='Rechazado','text-success':application.status=='Aprobado','text-info':application.status=='Pre_Aprobado'}">{{application.status}}</td>
                             <td class=" pt-0 pb-0">{{application.created | date:'dd/MM/yyyy hh:mm:ss'}}</td>
                             <td class=" pt-0 pb-0">
                                 @if (((Type_User)Enum.Parse(typeof(Type_User), User.Claims.First(x => x.Type == "TypeUser").Value.ToString())) == Type_User.Ejecutivo)
@@ -70,10 +70,12 @@
                                 }
                                 else if (((Type_User)Enum.Parse(typeof(Type_User), User.Claims.First(x => x.Type == "TypeUser").Value.ToString())) == Type_User.Oficial)
                                 {
-                                    <a data-toggle="modal" data-target="#modalContact" ng-click="appIdAssign($index);"
-                                       @*title="{{application.status}}" data-content="Este caso esta a la espera de ser asignado"
-                                   data-trigger="hover"*@>
+                                    <a data-toggle="modal" data-target="#modalContact" ng-click="appIdAssign($index);">
                                         <i class="fas fa-address-card fa-2x text-success"></i>
+                                    </a>
+
+                                    <a data-toggle="modal" data-target="#modalStatus" ng-click="appIdAssign(application.id);" ng-show="application.status == 'Pre_Aprobado'">
+                                        <i class="fas fa-comment-alt fa-2x text-success"></i>
                                     </a>
                                 }
 
@@ -84,7 +86,7 @@
             </div>
         </section>
     </div>
-    
+
     @if (((Type_User)Enum.Parse(typeof(Type_User), User.Claims.First(x => x.Type == "TypeUser").Value.ToString())) == Type_User.Ejecutivo)
     {
         <partial name="_Modal" model="Model" />
@@ -92,12 +94,14 @@
     else if (((Type_User)Enum.Parse(typeof(Type_User), User.Claims.First(x => x.Type == "TypeUser").Value.ToString())) == Type_User.Oficial)
     {
         <partial name="_ContactPartial" model="Model" />
+        <partial name="_ContactStatusPartial" model="Model" />
     }
 
 </div>
 
 @section scripts{
-
+    <script src="~/lib/angular-ui-mask/ui-mask.js"></script>
+    <script src="~/lib/angularjs-currency-input-mask/dist/angularjs-currency-input-mask.min.js"></script>
     <script src="~/js/Application/Index.js"></script>
     <script>
         $(document).ready(function () {

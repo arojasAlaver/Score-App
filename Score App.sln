@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scoreapp.data", "scoreapp.d
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scoreapp.model", "scoreapp.model\scoreapp.model.csproj", "{28750349-3F4F-4660-A4BE-3DD41B5EDEA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scoreapp.Hubs", "scoreapp.Hubs\scoreapp.Hubs.csproj", "{94C7187C-6F58-4C88-9FFC-162835FBBEF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scoreapp.notifications", "scoreapp.notifications\scoreapp.notifications.csproj", "{E3AA1C99-8A70-44F7-A46E-DD69B4E546BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{28750349-3F4F-4660-A4BE-3DD41B5EDEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28750349-3F4F-4660-A4BE-3DD41B5EDEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28750349-3F4F-4660-A4BE-3DD41B5EDEA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94C7187C-6F58-4C88-9FFC-162835FBBEF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94C7187C-6F58-4C88-9FFC-162835FBBEF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94C7187C-6F58-4C88-9FFC-162835FBBEF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94C7187C-6F58-4C88-9FFC-162835FBBEF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3AA1C99-8A70-44F7-A46E-DD69B4E546BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3AA1C99-8A70-44F7-A46E-DD69B4E546BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3AA1C99-8A70-44F7-A46E-DD69B4E546BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3AA1C99-8A70-44F7-A46E-DD69B4E546BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

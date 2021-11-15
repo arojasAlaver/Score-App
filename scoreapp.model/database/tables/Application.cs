@@ -40,8 +40,12 @@ namespace scoreapp.model.database.tables
         [Range(1, 60, ErrorMessage = "El rango de aceptación es de {1} hasta {2} meses"), Column(Order = 9), Display(Name = "Plazo en Meses"),
             Required(ErrorMessage = "Este campo es requerido")]
         public int? Terms { get; set; }
-
+        [Column(Order = 9, TypeName = "decimal(18,2)"), Display(Name = "Monto Aprobado")]
+        public decimal AproveAmount { get; set; }
+        [Column(Order = 10)]
         public Offices Office { get; set; }
+        [Column(Order = 11), Display(Name = "Descripción o Motivo opcional")]
+        public string Description { get; set; }
 
         public User ExecutiveAssigned { get; set; }
         

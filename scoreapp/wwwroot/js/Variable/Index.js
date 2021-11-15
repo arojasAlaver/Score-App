@@ -26,6 +26,9 @@ app.controller('indexController', ['$scope', '$http', '$timeout', function ($sco
         
         $timeout(function () {
             refreshTable();
+            $('.modal').on('hidden.bs.modal', function () {
+                $('body').css("padding-right","");
+            })
             
         }, 0, false);
         
@@ -35,6 +38,7 @@ app.controller('indexController', ['$scope', '$http', '$timeout', function ($sco
         $http.get('/api/c89e734b-4f1d-41d9-b071-5ef07773cd0b/Get', $scope.config).then(
             function (response) {
                 $scope.groups = response.data[0];
+
                 
             }
             , function (error) {

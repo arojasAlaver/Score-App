@@ -12,6 +12,7 @@ using scoreapp.model.enums;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace scoreapp.data.Services.Classes
 {
@@ -32,27 +33,27 @@ namespace scoreapp.data.Services.Classes
         }
 
 
-        public Boolean searchForValue(string data, int age)
+        public Boolean searchForValue(string data, decimal age)
         {
             if (data.Contains(">="))
             {
-                return age >= Convert.ToInt32(data[2..]);
+                return age >= Convert.ToDecimal(data[2..]);
             }
             else if (data.Contains("<="))
             {
-                return age <= Convert.ToInt32(data[2..]);
+                return age <= Convert.ToDecimal(data[2..]);
             }
             else if (data.Contains("=="))
             {
-                return age == Convert.ToInt32(data[2..]);
+                return age == Convert.ToDecimal(data[2..]);
             }
             else if (data.Contains(">"))
             {
-                return age > Convert.ToInt32(data[1..]);
+                return age > Convert.ToDecimal(data[1..]);
             }
             else if (data.Contains("<"))
             {
-                return age < Convert.ToInt32(data[1..]);
+                return age < Convert.ToDecimal(data[1..]);
             }
             return false;
         }
@@ -67,6 +68,12 @@ namespace scoreapp.data.Services.Classes
             == ((Nationality)app.Nationality).ToString().ToLower()).Score;
             score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower() 
             == ((Marital_Status)app.Marital_Status).ToString().ToLower()).Score;
+
+            score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower()
+            == ((Type_Job)app.Jobs.First().TypeJob).ToString().ToLower()).Score;
+
+            score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower()
+            == ((Municipality)app.Municipality).ToString().ToLower()).Score;
 
             int age = DateTime.Now.Year - app.BornDate.Value.Year;
             age -= Convert.ToInt32(DateTime.Now.Date < app.BornDate.Value.Date.AddYears(age));
@@ -166,6 +173,16 @@ namespace scoreapp.data.Services.Classes
                     app.Applications.First().Score += DatacreditoScore(app.Buro);
                 }
 
+                if (app.Applications.First().Score <
+                    Convert.ToInt32(
+                        _protector.Unprotect(_allSettings
+                        .SingleOrDefault(x => _protector
+                        .Unprotect(x.Setting) == "Score.Accepted").Value)))
+                {
+                    app.Applications.First().Status = Application_Status.Rechazado;
+                }
+                    
+
                 _db.Persons.Attach(app);
                 _db.Entry(app).State = EntityState.Modified;
                 
@@ -220,23 +237,29 @@ namespace scoreapp.data.Services.Classes
             XmlDocument document = new XmlDocument();
             document.LoadXml(buro);
             int score = 0;
-            
-
-            IDictionary<string, int> datas = new Dictionary<string, int>() 
-            {
-                { "buro_score", Convert.ToInt32(((XmlNode)document["dcr"].SelectSingleNode("xcore_pd12m_all_pc_nc_global/xcore")).InnerText)},
-                { "duracion_atrasos_mas_reciente",Convert.ToInt32(Regex.Matches(!string.IsNullOrEmpty(((XmlNode)document["dcr"]
-                .SelectSingleNode("analisiscrediticio/analisisatrasos/moneda[@id='rd']/masreciente/diasatraso")).InnerText)?
-                ((XmlNode)document["dcr"]
-                .SelectSingleNode("analisiscrediticio/analisisatrasos/moneda[@id='rd']/masreciente/diasatraso")).InnerText:"0", @"\d+")[0]
-                .ToString())}
-            };
-            
-            
 
 
+            IDictionary<string, decimal> datas = new Dictionary<string, decimal>();
+            datas.Add("buro_score", Convert.ToInt32(((XmlNode)document["dcr"].SelectSingleNode("xcore_pd12m_all_pc_nc_global/xcore")).InnerText));
+            datas.Add("duracion_atrasos_mas_reciente", Convert.ToInt32(Regex.Matches(!string.IsNullOrEmpty(((XmlNode)document["dcr"]
+              .SelectSingleNode("analisiscrediticio/analisisatrasos/moneda[@id='rd']/masreciente/diasatraso")).InnerText) ?
+              ((XmlNode)document["dcr"]
+              .SelectSingleNode("analisiscrediticio/analisisatrasos/moneda[@id='rd']/masreciente/diasatraso")).InnerText : "0", @"\d+")[0]
+              .ToString()));
+            datas.Add("monto_vencimiento_mas_reciente", DateTime.ParseExact(((XmlNode)document["dcr"]
+                .SelectSingleNode("analisiscrediticio/analisisatrasos/moneda[@id='rd']/masreciente/fecha")).InnerText, "MM-yyyy", CultureInfo.CurrentCulture) >=
+                DateTime.ParseExact(((XmlNode)document["dcr"]
+                .SelectSingleNode("analisiscrediticio/analisiscreditos/moneda[@id='rd']/masreciente/fecha")).InnerText, "MM-yyyy", CultureInfo.CurrentCulture) ?
 
-            foreach(var item in datas)
+                    Convert.ToDecimal((100 / Convert.ToInt32(((XmlNode)document["dcr"]
+                .SelectSingleNode("analisiscrediticio/analisiscreditos/moneda[@id='rd']/masreciente/monto")).InnerText.Replace("$", ""))) *
+                Convert.ToInt32(((XmlNode)document["dcr"]
+                .SelectSingleNode("analisiscrediticio/analisisatrasos/moneda[@id='rd']/masreciente/monto")).InnerText.Replace("$", ""))) : 0);
+
+
+
+
+            foreach (var item in datas)
             {
                 var obj = _db.Variables.Where(x => x.Group.Description.ToLower() == item.Key.ToString()).Select(x => new
                 {

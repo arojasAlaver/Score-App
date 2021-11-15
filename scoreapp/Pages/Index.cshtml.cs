@@ -45,7 +45,9 @@ namespace scoreapp.Pages
 
         [BindProperty]
         public Person _person { get; set; }
-        
+
+
+
         private readonly IHtmlHelper _helper;
         private readonly ISendData _service;
         
@@ -59,7 +61,7 @@ namespace scoreapp.Pages
 
         public void OnGet()
         {
-            
+           
             load();
         }
         
@@ -181,7 +183,7 @@ namespace scoreapp.Pages
             {
                 Selected = true,
                 Disabled = true,
-                Text = "Oficina de Preferencia"
+                Text = "Cual es la oficina de su Preferencia?"
             });
 
 

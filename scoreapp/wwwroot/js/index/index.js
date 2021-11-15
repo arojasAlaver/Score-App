@@ -22,6 +22,8 @@ app.controller('indexController', ['$scope', '$municipality', '$person', '$car',
     $scope.typeDocuments = [{ id: null, label: "Tipo de Documento", disabled: true },
         { id: 0, label: "Cédula", subItem: "999-9999999-9" }, { id: 1, label: "Pasaporte", subItem: "AA9999999" }];
     $scope.phoneFormat = "(999)-999-9999";
+    $scope.incomes = '0.00';
+    $scope.otherIncomes = '0.00';
 
 
     /*VARIABLES DECLARATION*/
@@ -119,8 +121,9 @@ app.controller('indexController', ['$scope', '$municipality', '$person', '$car',
     $scope.terms = $person == null ? 0 : $person.applications[0].terms;
     
     $scope.ifNull = function (value) {
-        if (value == undefined)
-            return 0;
+        
+        if (value == undefined || value == '' || value == null)
+            return '0.00';
         return value;
     }
     

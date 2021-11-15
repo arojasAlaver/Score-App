@@ -12,7 +12,6 @@ using scoreapp.model.enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace scoreapp.Api
@@ -76,7 +75,7 @@ namespace scoreapp.Api
                 Amount = x.Amount,
                 Status = ((Application_Status)x.Status).ToString(),
                 Created = x.CreatedAt
-            }).ToListAsync() }) ;
+            }).OrderBy(x => x.Created).ToListAsync() }) ;
             }
 
 
@@ -108,6 +107,101 @@ namespace scoreapp.Api
                 _emailService.SendEmail(app);
 
             return Ok(app);
+        }
+
+
+        [HttpPost]
+        [Authorize(Policy = "Application")]
+        [Route("Status")]
+        public async Task<IActionResult> Status([FromBody] StatusDto status)
+        {
+            var Id = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == "Id").Value);
+            
+            User Oficial = await _db.Users.AsNoTracking().
+                SingleOrDefaultAsync(x => x.Id == Id);
+
+
+            var app = await _db.Applications.Include(x => x.Person).SingleOrDefaultAsync(x => x.Id == status.ApplicationId);
+
+            app.Description = status.Description;
+            app.Status = status.Status;
+            if (status.Amount > 0)
+            {
+                app.AproveAmount = status.Amount;
+            }
+            else
+            {
+                app.AproveAmount = app.Amount;
+            }
+
+            _db.Applications.Update(app);
+
+            bool result = Convert.ToBoolean(await _db.SaveChangesAsync());
+
+
+            return Ok(app);
+        }
+
+
+        [HttpGet]
+        //[Authorize(Policy = "Applications")]
+        [AllowAnonymous]
+        [Route("Applications")]
+        [AjaxOnly]
+        public async Task<IActionResult> Applications()
+        {
+            var group = new[] {
+                new { Month = 1,Total=0},
+                new { Month = 2,Total=0},
+                new { Month = 3,Total=0},
+                new { Month = 4,Total=0},
+                new { Month = 5,Total=0},
+                new { Month = 6,Total=0},
+                new { Month = 7,Total=0},
+                new { Month = 8,Total=0},
+                new { Month = 9,Total=0},
+                new { Month = 10,Total=0},
+                new { Month = 11,Total=0},
+                new { Month = 12,Total=0} 
+            };
+
+            var groupMoney = new[] {
+                new { Month = 1,Total = Convert.ToDecimal(0),TotalAproved=Convert.ToDecimal(0)},
+                new { Month = 2,Total = Convert.ToDecimal(0),TotalAproved=Convert.ToDecimal(0)},
+                new { Month = 3,Total = Convert.ToDecimal(0),TotalAproved=Convert.ToDecimal(0)},
+                new { Month = 4,Total = Convert.ToDecimal(0),TotalAproved=Convert.ToDecimal(0)},
+                new { Month = 5,Total = Convert.ToDecimal(0),TotalAproved=Convert.ToDecimal(0)},
+                new { Month = 6,Total = Convert.ToDecimal(0),TotalAproved=Convert.ToDecimal(0)},
+                new { Month = 7,Total = Convert.ToDecimal(0),TotalAproved=Convert.ToDecimal(0)},
+                new { Month = 8,Total = Convert.ToDecimal(0),TotalAproved=Convert.ToDecimal(0)},
+                new { Month = 9,Total = Convert.ToDecimal(0),TotalAproved=Convert.ToDecimal(0)},
+                new { Month = 10,Total = Convert.ToDecimal(0),TotalAproved=Convert.ToDecimal(0)},
+                new { Month = 11,Total = Convert.ToDecimal(0),TotalAproved=Convert.ToDecimal(0)},
+                new { Month = 12,Total = Convert.ToDecimal(0),TotalAproved=Convert.ToDecimal(0)}
+            };
+
+            _db.Applications.GroupBy(x => x.CreatedAt.Month)
+                .Select(y => new
+                {
+                    Month = y.Key,
+                    Total = y.Count()
+                }).ToList().ForEach(x =>
+                {
+                    group[x.Month-1] = x;
+                });
+
+            _db.Applications.GroupBy(x => x.CreatedAt.Month)
+                .Select(y => new
+                {
+                    Month = y.Key,
+                    Total = y.Sum(x => x.Amount),
+                    TotalAproved = y.Sum(x => x.AproveAmount)
+                }).ToList().ForEach(x =>
+                {
+                    groupMoney[x.Month - 1] = x;
+                });
+
+            return Ok(new object[] { await _db.Applications.ToListAsync(), group,groupMoney});
         }
     }
 }

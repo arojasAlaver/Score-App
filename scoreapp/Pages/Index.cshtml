@@ -33,8 +33,6 @@ ModelState["_person.Jobs[0].CompanyName"].Errors.Count > 0 || ModelState["_perso
 
 
 
-
-
 <form method="post">
 
     <div ng-app="indexModule" ng-controller="indexController">
@@ -199,6 +197,7 @@ ModelState["_person.Jobs[0].CompanyName"].Errors.Count > 0 || ModelState["_perso
 
                                 <select class="mdb-select md-form md-outline" searchable="Search here.." asp-for="_person.Applications[0].Office" asp-items="Model._offices">
                                 </select>
+                                
                                 <span asp-validation-for="_person.Applications[0].Office" class="text-danger"></span>
 
 

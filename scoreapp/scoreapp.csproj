@@ -104,6 +104,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Negotiate" Version="5.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -111,11 +112,14 @@
     <PackageReference Include="Ocelot" Version="17.0.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
+    <PackageReference Include="TypeMerger" Version="2.1.1" />
     <PackageReference Include="WebMarkupMin.AspNetCore5" Version="2.10.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\scoreapp.data\scoreapp.data.csproj" />
+    <ProjectReference Include="..\scoreapp.Hubs\scoreapp.Hubs.csproj" />
+    <ProjectReference Include="..\scoreapp.notifications\scoreapp.notifications.csproj" />
   </ItemGroup>
 
 </Project>
