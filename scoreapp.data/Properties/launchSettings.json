@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "scoreapp.data": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ADMIN": "1WlRuNENCjWreTFm0mLaM2"
+      }
+    }
+  }
+}

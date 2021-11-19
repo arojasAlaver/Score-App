@@ -52,8 +52,12 @@ namespace scoreapp.model.database.tables
         public Nationality? Nationality { get; set; }
         public DateTime? LastDateBuroConsult { get; set; }
 
-        [Column(TypeName = "xml")]
+        [Column(TypeName = "xml",Order =13)]
         public string Buro { get; set; }
+        [Column(Order = 12), Display(Name = "Dependientes"), Required(ErrorMessage = "El campo dependientes es obligatorio")]
+        public Dependents Dependents { get; set; }
+        [Column(Order = 12), Display(Name = "Tipo de Vivienda"), Required(ErrorMessage = "El campo tipo de vivienda es obligatorio")]
+        public Type_Dwelling Dwelling { get; set; }
 
         public List<Application> Applications { get; set; }
         public List<JobInfo> Jobs { get; set; }

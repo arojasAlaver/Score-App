@@ -122,4 +122,8 @@
     <ProjectReference Include="..\scoreapp.notifications\scoreapp.notifications.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
+  </ItemGroup>
+
 </Project>

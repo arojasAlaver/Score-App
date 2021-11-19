@@ -6,7 +6,7 @@
     Boolean personalDataHasError = !ModelState.IsValid && (ModelState["_person.Id"].Errors.Count > 0 || ModelState["_person.Names"].Errors.Count > 0 ||
         ModelState["_person.LastNames"].Errors.Count > 0 || ModelState["_person.Type_Indetification"].Errors.Count > 0 || ModelState["_person.cel1"].Errors.Count > 0 || ModelState["_person.cel2"].Errors.Count > 0 ||
         ModelState["_person.Email"].Errors.Count > 0 || ModelState["_person.Address"].Errors.Count > 0 || ModelState["_person.BornDate"].Errors.Count > 0 || ModelState["_person.Province"].Errors.Count > 0
-        || ModelState["_person.Municipality"].Errors.Count > 0);
+        || ModelState["_person.Municipality"].Errors.Count > 0 || ModelState["_person.Dependents"].Errors.Count > 0 || ModelState["_person.Dwelling"].Errors.Count > 0);
 
     Boolean loanDataHasError = !ModelState.IsValid && (ModelState["_person.Applications[0].Amount"].Errors.Count > 0 ||
         ModelState["_person.Applications[0].Terms"].Errors.Count > 0);

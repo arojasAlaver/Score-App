@@ -160,14 +160,14 @@
                         <table id="table-{{group.description}}" class="table table-striped table-bordered" cellspacing="0" width="100%" style="max-height:500px">
                             <thead>
                                 <tr>
-                                    <th class="th-sm" style="white-space:nowrap">Id</th>
+                                    <th class="th-sm">Id</th>
                                     <th class="th-sm">Variable</th>
                                     <th class="th-sm">Puntaje</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr ng-repeat="variable in group.variables">
-                                    <td style="white-space:nowrap">{{variable.id}}</td>
+                                    <td>{{variable.id}}</td>
                                     <td style="white-space: nowrap">{{variable.description}}</td>
                                     <td>{{variable.score}}</td>
                                 </tr>

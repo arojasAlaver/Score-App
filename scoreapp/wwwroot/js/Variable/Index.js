@@ -102,7 +102,7 @@ app.controller('indexController', ['$scope', '$http', '$timeout', function ($sco
                         }
                     },
                     function (error) {
-                        console.log(error);
+                        window.location.reload();
                     }
                 );
         } else {

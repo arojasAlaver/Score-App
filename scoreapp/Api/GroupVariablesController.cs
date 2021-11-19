@@ -34,11 +34,11 @@ namespace scoreapp.Api
                 .Select(x => new
                 {
                     Id = x.Id,
-                    Description = x.Description,
+                    Description = x.Description.Replace("_"," "),
                     Variables = x.Variables.Select(y => new
                     {
                         Id = y.Id,
-                        Description = y.Description,
+                        Description = y.Description.Replace("_"," "),
                         Score = y.Score
                     })
                 }).ToListAsync()});

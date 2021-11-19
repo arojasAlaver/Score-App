@@ -78,9 +78,9 @@
                             track by province.id" ng-change="update(1)">
 </select>
 @*<select class="browser-default custom-select mt-3" asp-for="_person.Province" style="color: #757575bd" ng-model="personProvinceSelect"
-        ng-options="province as province.label disable when province.disabled for province in personProvinces
-                            track by province.id" ng-change="update(1)">
-</select>*@
+            ng-options="province as province.label disable when province.disabled for province in personProvinces
+                                track by province.id" ng-change="update(1)">
+    </select>*@
 <span asp-validation-for="_person.Province" class="text-danger"></span>
 
 <select class="mdb-select md-form md-outline" searchable="Search here.."
@@ -89,14 +89,20 @@
                             track by municipality.id">
 </select>
 @*<select class="browser-default custom-select mt-3" asp-for="_person.Municipality" style="color: #757575bd" ng-model="personMunipalitySelect"
-        ng-options="municipality as municipality.label disable when municipality.disabled for municipality in personMunicipalities
-                            track by municipality.id">
-</select>*@
+            ng-options="municipality as municipality.label disable when municipality.disabled for municipality in personMunicipalities
+                                track by municipality.id">
+    </select>*@
 <span asp-validation-for="_person.Municipality" class="text-danger"></span>
 <div class="md-form md-outline mt-3">
-    <input asp-for="_person.BornDate" class="form-control"  autocomplete="off">
+    <input asp-for="_person.BornDate" class="form-control" autocomplete="off">
     <label asp-for="_person.BornDate" class="activeCustom" style="position:absolute;top:18px;">@Html.DisplayNameFor(x => x._person.BornDate)</label>
     <span asp-validation-for="_person.BornDate" class="text-danger"></span>
 </div>
+
+<select class="browser-default custom-select mt-3 form-control" asp-for="_person.Dependents" style="color: #757575bd" asp-items="Model._dependents"></select>
+<span asp-validation-for="_person.Dependents" class="text-danger"></span>
+
+<select class="browser-default custom-select mt-3 form-control" asp-for="_person.Dwelling" style="color: #757575bd" asp-items="Model._type_dwelling"></select>
+<span asp-validation-for="_person.Dwelling" class="text-danger"></span>
 
 

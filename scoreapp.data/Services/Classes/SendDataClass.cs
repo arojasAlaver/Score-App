@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using scoreapp_model_enums;
 
 namespace scoreapp.data.Services.Classes
 {
@@ -64,87 +65,28 @@ namespace scoreapp.data.Services.Classes
             IDataProtector _protector = _provider.CreateProtector(Config.private_key);
 
             int score = 0;
-            score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower() 
-            == ((Nationality)app.Nationality).ToString().ToLower()).Score;
-            score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower() 
-            == ((Marital_Status)app.Marital_Status).ToString().ToLower()).Score;
+            score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower().Replace("_", " ")
+            == ((Nationality)app.Nationality).ToString().ToLower().Replace("_", " ")).Score;
+            score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower().Replace("_", " ")
+            == ((Marital_Status)app.Marital_Status).ToString().ToLower().Replace("_", " ")).Score;
 
-            score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower()
-            == ((Type_Job)app.Jobs.First().TypeJob).ToString().ToLower()).Score;
+            score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower().Replace("_", " ")
+            == ((Type_Job)app.Jobs.First().TypeJob).ToString().ToLower().Replace("_"," ")).Score;
 
-            score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower()
-            == ((Municipality)app.Municipality).ToString().ToLower()).Score;
+            score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower().Replace("_", " ")
+            == ((Municipality)app.Municipality).ToString().ToLower().Replace("_", " ")).Score;
 
-            int age = DateTime.Now.Year - app.BornDate.Value.Year;
-            age -= Convert.ToInt32(DateTime.Now.Date < app.BornDate.Value.Date.AddYears(age));
+            score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower().Replace("_", " ")
+            == ((Dependents)app.Dependents).ToString().ToLower().Replace("_", " ")).Score;
 
+            score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower().Replace("_", " ")
+            == ((Type_Dwelling)app.Dwelling).ToString().ToLower().Replace("_", " ")).Score;
 
-            var obj = _db.Variables.Where(x => x.Group.Description.ToLower() == "edades").Select(x => new
-            {
-                Variables = x.Description,
-                Score = x.Score
-            }).ToList();
-
-            
+            score += _db.Variables.AsNoTracking().SingleOrDefault(x => x.Description.ToLower().Replace("_", " ")
+            == ((Type_Activity)app.Jobs.First().TypeActivity).ToString().ToLower().Replace("_", " ")).Score;
 
 
-            for (int i = 0; i < obj.Count; i++)
-            {
-                string[] data = obj[i].Variables.ToLower().Split("x");
-                data = data.Where(x => !string.IsNullOrEmpty(x)).ToArray();
-                if (data.Count() > 1)
-                {
-                    if (searchForValue(data[0], age) && searchForValue(data[1], age))
-                    {
-                        score += Convert.ToInt32(obj[i].Score);
-                        break;
-                    }
 
-                }
-                else
-                {
-                    if (searchForValue(data[0], age))
-                    {
-                        score += Convert.ToInt32(obj[i].Score);
-                        break;
-                    }
-                }
-
-            }
-            obj = _db.Variables.Where(x => x.Group.Description.ToLower() == "tiempo_laborando").Select(x => new
-            {
-                Variables = x.Description,
-                Score = x.Score
-            }).ToList();
-
-            int timeInCompany = app.Jobs.First().TimeInCompany != 0? app.Jobs.First().TimeInCompany / 12:0;
-            if(timeInCompany!= 0)
-            {
-                for (int i = 0; i < obj.Count; i++)
-                {
-                    string[] data = obj[i].Variables.ToLower().Split("x");
-                    data = data.Where(x => !string.IsNullOrEmpty(x)).ToArray();
-                    if (data.Count() > 1)
-                    {
-                        if (searchForValue(data[0], timeInCompany) && searchForValue(data[1], timeInCompany))
-                        {
-                            score += Convert.ToInt32(obj[i].Score);
-                            break;
-                        }
-
-                    }
-                    else
-                    {
-                        if (searchForValue(data[0], timeInCompany))
-                        {
-                            score += Convert.ToInt32(obj[i].Score);
-                            break;
-                        }
-                    }
-
-                }
-            }
-            
 
             app.Applications.First().Score = score;
 
@@ -152,7 +94,7 @@ namespace scoreapp.data.Services.Classes
             {
                 app.LastDateBuroConsult = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 app.Buro = personBuro(app.Id).OuterXml;
-                app.Applications.First().Score += DatacreditoScore(app.Buro);
+                app.Applications.First().Score += DatacreditoScore(app);
                 await _db.Persons.AddAsync(app);
 
 
@@ -164,13 +106,13 @@ namespace scoreapp.data.Services.Classes
                 {
                     app.LastDateBuroConsult = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                     app.Buro = personBuro(app.Id).OuterXml;
-                    app.Applications.First().Score += DatacreditoScore(app.Buro);
+                    app.Applications.First().Score += DatacreditoScore(app);
                 }
                 else
                 {
                     app.LastDateBuroConsult = personExist.LastDateBuroConsult;
                     app.Buro = personExist.Buro;
-                    app.Applications.First().Score += DatacreditoScore(app.Buro);
+                    app.Applications.First().Score += DatacreditoScore(app);
                 }
 
                 if (app.Applications.First().Score <
@@ -232,12 +174,32 @@ namespace scoreapp.data.Services.Classes
             return document;
         }
 
-        public int DatacreditoScore(string buro)
+        public int DatacreditoScore(Person app)
         {
+            if (string.IsNullOrEmpty(app.Buro))
+                return 0;
+
             XmlDocument document = new XmlDocument();
-            document.LoadXml(buro);
+            document.LoadXml(app.Buro);
             int score = 0;
 
+            decimal capacidad = app.Applications.First().Incomes + app.Applications.First().OtherIncomes ?? 0;
+            decimal cuota = app.Applications.First().Amount / app.Applications.First().Terms ?? 0;
+
+            int age = DateTime.Now.Year - app.BornDate.Value.Year;
+            age -= Convert.ToInt32(DateTime.Now.Date < app.BornDate.Value.Date.AddYears(age));
+            decimal deudas = Convert.ToDecimal(0);
+            foreach (System.Xml.XmlNode node in document["dcr"].SelectSingleNode("//producto[@cod='pre']"))
+            {
+                
+                if (node.SelectSingleNode("estatusultimo").InnerText.ToLower() == "vigente")
+                {
+                    if (node.SelectSingleNode("cuota").InnerText != "")
+                    {
+                        deudas += Convert.ToDecimal(node.SelectSingleNode("cuota").InnerText);
+                    }
+                }
+            }
 
             IDictionary<string, decimal> datas = new Dictionary<string, decimal>();
             datas.Add("buro_score", Convert.ToInt32(((XmlNode)document["dcr"].SelectSingleNode("xcore_pd12m_all_pc_nc_global/xcore")).InnerText));
@@ -256,12 +218,22 @@ namespace scoreapp.data.Services.Classes
                 Convert.ToInt32(((XmlNode)document["dcr"]
                 .SelectSingleNode("analisiscrediticio/analisisatrasos/moneda[@id='rd']/masreciente/monto")).InnerText.Replace("$", ""))) : 0);
 
+            datas.Add("capacidad_endeudamiento", Math.Round(cuota / (capacidad - deudas),2));
+
+            datas.Add("edades", age);
+
+            int timeInCompany = app.Jobs.First().TimeInCompany != 0 ? app.Jobs.First().TimeInCompany / 12 : 0;
+            if (timeInCompany != 0)
+            {
+                datas.Add("tiempo_laborando",timeInCompany);
+            }
+
 
 
 
             foreach (var item in datas)
             {
-                var obj = _db.Variables.Where(x => x.Group.Description.ToLower() == item.Key.ToString()).Select(x => new
+                var obj = _db.Variables.Where(x => x.Group.Description.ToLower().Replace(" ", "_") == item.Key.ToString()).Select(x => new
                 {
                     Variables = x.Description,
                     Score = x.Score

@@ -24,7 +24,7 @@ app.controller('indexController', ['$scope','$settings', function ($scope, $sett
     
     $scope.add = function ()
     {
-        $scope.settings.push(
+        $scope.settings.unshift(
             {       
                 id: '00000000-0000-0000-0000-000000000000',
                 setting: '',

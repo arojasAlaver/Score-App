@@ -37,6 +37,8 @@ namespace scoreapp.Pages
         public List<SelectListItem> _marital_status { get; set; }
         public List<SelectListItem> _nationality { get; set; }
         public List<SelectListItem> _offices { get; set; }
+        public List<SelectListItem> _dependents { get; set; }
+        public List<SelectListItem> _type_dwelling { get; set; }
         [TempData]
         public string[] Message { get; set; }
         
@@ -111,6 +113,8 @@ namespace scoreapp.Pages
             _marital_status = _helper.GetEnumSelectList<Marital_Status>().ToList();
             _nationality = _helper.GetEnumSelectList<Nationality>().ToList();
             _offices = _helper.GetEnumSelectList<Offices>().ToList();
+            _dependents = _helper.GetEnumSelectList<Dependents>().ToList();
+            _type_dwelling = _helper.GetEnumSelectList<Type_Dwelling>().ToList();
 
             _year = Enumerable.Range(1970, (DateTime.Now.Year + 1 - 1970)).Select(x => new SelectListItem
             {
@@ -185,6 +189,15 @@ namespace scoreapp.Pages
                 Disabled = true,
                 Text = "Cual es la oficina de su Preferencia?"
             });
+
+            _dependents.Insert(0, new SelectListItem
+            {
+                Selected = true,
+                Disabled = true,
+                Text = "cantidad de dependientes?"
+            });
+
+
 
 
 
