@@ -176,11 +176,9 @@ namespace scoreapp.data.Services.Classes
 
         public int DatacreditoScore(Person app)
         {
-            if (string.IsNullOrEmpty(app.Buro))
-                return 0;
+            
 
-            XmlDocument document = new XmlDocument();
-            document.LoadXml(app.Buro);
+                
             int score = 0;
 
             decimal capacidad = app.Applications.First().Incomes + app.Applications.First().OtherIncomes ?? 0;
@@ -189,26 +187,32 @@ namespace scoreapp.data.Services.Classes
             int age = DateTime.Now.Year - app.BornDate.Value.Year;
             age -= Convert.ToInt32(DateTime.Now.Date < app.BornDate.Value.Date.AddYears(age));
             decimal deudas = Convert.ToDecimal(0);
-            foreach (System.Xml.XmlNode node in document["dcr"].SelectSingleNode("//producto[@cod='pre']"))
+            IDictionary<string, decimal> datas = new Dictionary<string, decimal>();
+            if (!string.IsNullOrEmpty(app.Buro))
             {
-                
-                if (node.SelectSingleNode("estatusultimo").InnerText.ToLower() == "vigente")
+                XmlDocument document = new XmlDocument();
+                document.LoadXml(app.Buro);
+
+                foreach (System.Xml.XmlNode node in document["dcr"].SelectSingleNode("//producto[@cod='pre']"))
                 {
-                    if (node.SelectSingleNode("cuota").InnerText != "")
+
+                    if (node.SelectSingleNode("estatusultimo").InnerText.ToLower() == "vigente")
                     {
-                        deudas += Convert.ToDecimal(node.SelectSingleNode("cuota").InnerText);
+                        if (node.SelectSingleNode("cuota").InnerText != "")
+                        {
+                            deudas += Convert.ToDecimal(node.SelectSingleNode("cuota").InnerText);
+                        }
                     }
                 }
-            }
 
-            IDictionary<string, decimal> datas = new Dictionary<string, decimal>();
-            datas.Add("buro_score", Convert.ToInt32(((XmlNode)document["dcr"].SelectSingleNode("xcore_pd12m_all_pc_nc_global/xcore")).InnerText));
-            datas.Add("duracion_atrasos_mas_reciente", Convert.ToInt32(Regex.Matches(!string.IsNullOrEmpty(((XmlNode)document["dcr"]
-              .SelectSingleNode("analisiscrediticio/analisisatrasos/moneda[@id='rd']/masreciente/diasatraso")).InnerText) ?
-              ((XmlNode)document["dcr"]
-              .SelectSingleNode("analisiscrediticio/analisisatrasos/moneda[@id='rd']/masreciente/diasatraso")).InnerText : "0", @"\d+")[0]
-              .ToString()));
-            datas.Add("monto_vencimiento_mas_reciente", DateTime.ParseExact(((XmlNode)document["dcr"]
+                datas.Add("buro_score", Convert.ToInt32(((XmlNode)document["dcr"].SelectSingleNode("xcore_pd12m_all_pc_nc_global/xcore")).InnerText));
+                datas.Add("duracion_atrasos_mas_reciente", Convert.ToInt32(Regex.Matches(!string.IsNullOrEmpty(((XmlNode)document["dcr"]
+                  .SelectSingleNode("analisiscrediticio/analisisatrasos/moneda[@id='rd']/masreciente/diasatraso")).InnerText) ?
+                  ((XmlNode)document["dcr"]
+                  .SelectSingleNode("analisiscrediticio/analisisatrasos/moneda[@id='rd']/masreciente/diasatraso")).InnerText : "0", @"\d+")[0]
+                  .ToString()));
+
+                datas.Add("monto_vencimiento_mas_reciente", DateTime.ParseExact(((XmlNode)document["dcr"]
                 .SelectSingleNode("analisiscrediticio/analisisatrasos/moneda[@id='rd']/masreciente/fecha")).InnerText, "MM-yyyy", CultureInfo.CurrentCulture) >=
                 DateTime.ParseExact(((XmlNode)document["dcr"]
                 .SelectSingleNode("analisiscrediticio/analisiscreditos/moneda[@id='rd']/masreciente/fecha")).InnerText, "MM-yyyy", CultureInfo.CurrentCulture) ?
@@ -217,6 +221,13 @@ namespace scoreapp.data.Services.Classes
                 .SelectSingleNode("analisiscrediticio/analisiscreditos/moneda[@id='rd']/masreciente/monto")).InnerText.Replace("$", ""))) *
                 Convert.ToInt32(((XmlNode)document["dcr"]
                 .SelectSingleNode("analisiscrediticio/analisisatrasos/moneda[@id='rd']/masreciente/monto")).InnerText.Replace("$", ""))) : 0);
+            }
+            
+
+            
+            
+            
+            
 
             datas.Add("capacidad_endeudamiento", Math.Round(cuota / (capacidad - deudas),2));
 
