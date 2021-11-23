@@ -84,6 +84,7 @@ namespace scoreapp.Api
         [HttpPost]
         [Authorize(Policy = "Application")]
         [Route("Post")]
+        [AjaxOnly]
         public async Task<IActionResult> Post([FromBody] ApplicationOficialDto App)
         {
             var Id = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == "Id").Value);
@@ -113,6 +114,7 @@ namespace scoreapp.Api
         [HttpPost]
         [Authorize(Policy = "Application")]
         [Route("Status")]
+        [AjaxOnly]
         public async Task<IActionResult> Status([FromBody] StatusDto status)
         {
             var Id = Convert.ToInt32(HttpContext.User.Claims.First(x => x.Type == "Id").Value);

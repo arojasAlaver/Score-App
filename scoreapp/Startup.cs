@@ -63,6 +63,7 @@ namespace scoreapp
                 options.Conventions.AddPageRoute("/DashAdmin", "13a34cf3-70da-49a2-8e69-9fec42e0e3db");
                 options.Conventions.AddPageRoute("/Applications/Index", "6b4ad353-c211-4849-a8ba-a70e4bdfdb0c");
                 options.Conventions.AddPageRoute("/Variables/Index", "9e4256db-5990-4151-a88e-e1d490482410");
+                options.Conventions.AddPageRoute("/Reports/Index", "9e272f15-93a6-4511-9675-bba2bd832695");
             });
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>

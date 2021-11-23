@@ -1,0 +1,141 @@
+﻿@page
+@model scoreapp.Pages.Reports.IndexModel
+@{
+    ViewData["title"] = "Reportes";
+}
+
+
+<div ng-app="indexModule" ng-controller="indexController">
+    <div class="container">
+
+        <!-- Section -->
+        <section>
+
+            <h3 class="font-weight-bold text-center dark-grey-text pb-2">Listado de Reportes</h3>
+            <hr class="w-header my-4">
+
+            <div class="row">
+
+
+                <div class="col-lg-4 col-md-12 mb-4">
+
+
+                    <div class="card">
+
+                        <div class="card-header white-text primary-color">
+                            Reportes de Ejecutivos
+                        </div>
+
+                        <div class="card-body text-center px-4">
+                            <div class="list-group list-group-flush">
+                                <a ng-click="filter('Asignación por Ejecutivo')" class="list-group-item d-flex justify-content-between dark-grey-text">
+                                    Asignación por Ejecutivo
+                                    <i class="fas fa-wrench ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                </a>
+                                <a ng-click="filter('Asignación por Oficina')" class="list-group-item d-flex justify-content-between dark-grey-text">
+                                    Asignación por Oficina
+                                    <i class="fas fa-wrench ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                </a>
+                                <a ng-click="filter('Asignación por Oficial')" class="list-group-item d-flex justify-content-between dark-grey-text">
+                                    Asignación por Oficial
+                                    <i class="fas fa-wrench ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <div class="card">
+
+                        <div class="card-header white-text primary-color">
+                            Reporte de Solicitudes
+                        </div>
+
+                        <div class="card-body text-center px-4">
+                            <div class="list-group list-group-flush">
+                                <a ng-click="filter('Solicitudes Rechazadas')" class="list-group-item d-flex justify-content-between dark-grey-text">
+                                    Solicitudes Rechazadas
+                                    <i class="fas fa-wrench ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                </a>
+                                <a ng-click="filter('Solicitudes Aprobadas')" class="list-group-item d-flex justify-content-between dark-grey-text">
+                                    Solicitudes Aprobadas
+                                    <i class="fas fa-wrench ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                </a>
+                                <a ng-click="filter('Solicitudes Monto Menor')" class="list-group-item d-flex justify-content-between dark-grey-text">
+                                    Solicitudes Monto Menor
+                                    <i class="fas fa-wrench ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                @*<div class="col-lg-4 col-md-6 mb-4">
+
+
+                    <div class="card">
+
+                        <div class="card-header white-text primary-color">
+                            Reportes de Oficiales
+                        </div>
+
+                        <div class="card-body text-center px-4">
+                            <div class="list-group list-group-flush">
+                                <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">
+                                    Solicitudes por Oficial
+                                    <i class="fas fa-wrench ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+
+
+                    <div class="card">
+
+                        <div class="card-header white-text primary-color">
+                            Reportes Generales
+                        </div>
+
+                        <div class="card-body text-center px-4">
+                            <div class="list-group list-group-flush">
+                                <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">
+                                    Solicitudes por Mes
+                                    <i class="fas fa-wrench ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                </a>
+                                <a href="#" class="list-group-item d-flex justify-content-between dark-grey-text">
+                                    Solicitudes por Años
+                                    <i class="fas fa-wrench ml-auto" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to fix"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>*@
+
+            </div>
+
+        </section>
+        <!-- Section -->
+
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/lib/angular-file-saver/angular-file-saver.bundle.js"></script>
+    <script src="~/lib/exceljs/exceljs.min.js"></script>
+    <script src="~/js/Reports/Index.js"></script>
+
+}
